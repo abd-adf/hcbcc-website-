@@ -27,7 +27,7 @@ export default function ProductCard({
   const { add } = useCart();
 
   return (
-    <article className="group bg-white flex flex-col overflow-hidden hover:bg-[#fafaf9] transition-colors duration-300">
+    <article className="group relative bg-white flex flex-col overflow-hidden hover:bg-[#fafaf9] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(0,0,0,0.10)] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-[2px] before:bg-[#111111] before:origin-bottom before:scale-y-0 hover:before:scale-y-100 before:transition-transform before:duration-300 before:z-10">
 
       {/* Image */}
       <div className="relative aspect-square bg-[#f7f7f5] overflow-hidden">

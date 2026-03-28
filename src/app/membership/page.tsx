@@ -54,11 +54,17 @@ export default function MembershipPage() {
       {/* Plans */}
       <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 -mt-8 pb-32">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#e8e8e5]">
-          {plans.map((plan) => (
+          {plans.map((plan, i) => (
             <div
               key={plan.id}
-              className="flex flex-col bg-white p-10"
+              className="relative flex flex-col bg-white p-10 overflow-hidden card-animate"
+              style={{ animationDelay: `${i * 100}ms` }}
             >
+              {plan.highlight && (
+                <div className="absolute top-6 right-[-30px] w-36 text-center bg-[#111111] text-white text-[9px] font-bold uppercase tracking-[0.2em] py-1.5 rotate-45 shadow-md">
+                  Best Value
+                </div>
+              )}
 
               <div className="mb-8">
                 <h2 className="font-heading text-4xl text-[#2f3a47] mb-1">{plan.name}</h2>

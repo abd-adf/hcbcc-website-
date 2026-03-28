@@ -64,3 +64,33 @@ h2, h3 {
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: #111111; border-radius: 0; }
+
+/* ── Design enhancement animations ─────────────────────── */
+
+/* Hero word reveal */
+@keyframes word-up {
+  from { transform: translateY(110%); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+.word-reveal {
+  display: inline-block;
+  animation: word-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Membership card staggered entrance */
+@keyframes card-in {
+  from { transform: translateY(24px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+.card-animate {
+  animation: card-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Shimmer effect for highlight buttons */
+@keyframes shimmer-slide {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200%  center; }
+}
+
+/* Transition duration utility (Tailwind doesn't have 400ms) */
+.transition-400 { transition-duration: 400ms; }

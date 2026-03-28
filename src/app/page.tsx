@@ -84,7 +84,10 @@ export default function HomePage() {
   return (
     <>
       {/* ── HERO ─────────────────────────────────────────────── */}
-      <section className="relative min-h-[calc(100vh-4rem)] flex items-end overflow-hidden">
+      <section
+        className="relative min-h-[calc(100vh-4rem)] flex items-end overflow-hidden"
+        style={{ clipPath: "polygon(0 0, 100% 0, 100% 93%, 0 100%)", marginBottom: "-4rem" }}
+      >
         <Image
           src={IMG.hero}
           alt="HCBCC group ride through Brussels"
@@ -94,15 +97,23 @@ export default function HomePage() {
           className="object-cover object-center"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
+        {/* Grain texture for depth */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+            opacity: 0.04,
+          }}
+        />
 
         <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pb-20 sm:pb-28">
           <div className="inline-flex items-center gap-2.5 mb-8 px-4 py-2 bg-white">
             <span className="w-1.5 h-1.5 rounded-full bg-black animate-pulse" />
             <span className="text-black text-sm uppercase tracking-[0.45em] font-bold">Brussels Cycling Club</span>
           </div>
-          <h1 className="font-heading text-[clamp(5rem,18vw,14rem)] leading-[0.85] text-white mb-6">
-            HORS<br />
-            <span className="text-white">CATÉGORIE</span>
+          <h1 className="font-heading text-[clamp(5rem,18vw,14rem)] leading-[0.85] text-white mb-6 overflow-hidden">
+            <span className="block overflow-hidden"><span className="word-reveal" style={{ animationDelay: "0ms" }}>HORS</span></span>
+            <span className="block overflow-hidden"><span className="word-reveal" style={{ animationDelay: "80ms" }}>CATÉGORIE</span></span>
           </h1>
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
             <p className="text-white/85 text-base sm:text-lg max-w-sm leading-relaxed">
@@ -128,7 +139,7 @@ export default function HomePage() {
       </section>
 
       {/* ── RIDES ────────────────────────────────────────────── */}
-      <section className="py-32 bg-[#f7f7f5]">
+      <section className="pt-48 pb-32 bg-[#f7f7f5]">
         <div className="max-w-screen-2xl mx-auto px-6 sm:px-8 lg:px-12">
 
           {/* Section header */}
@@ -164,15 +175,15 @@ export default function HomePage() {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
               {tuesdayRides.map((ride) => (
-                <div key={ride.id} className="group relative overflow-hidden h-[480px]">
+                <div key={ride.id} className="group relative overflow-hidden h-[480px] cursor-pointer">
                   <Image
                     src={ride.image}
                     alt={ride.name}
                     fill
                     sizes="(max-width: 640px) 100vw, 50vw"
-                    className="object-cover object-center group-hover:scale-[1.03] transition-transform duration-700"
+                    className="object-cover object-center group-hover:scale-[1.05] transition-transform duration-700 ease-out"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-transparent group-hover:from-black/98 transition-all duration-500" />
                   <div className="absolute top-5 left-5">
                     <div className="flex items-center gap-2">
                       <span className="inline-block px-3 py-1.5 text-base uppercase tracking-[0.2em] text-white font-bold bg-black">
@@ -186,10 +197,14 @@ export default function HomePage() {
                     </div>
                     <h4 className="font-heading text-3xl text-white leading-tight mt-2">{ride.name}</h4>
                   </div>
-                  <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8">
-                    <p className="text-white/90 text-base leading-relaxed mb-6">
+
+                  {/* Static bottom: stats always visible */}
+                  <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
+                    {/* Description: hidden, slides up on hover */}
+                    <p className="text-white/90 text-sm leading-relaxed mb-4 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-out">
                       {ride.description}
                     </p>
+                    {/* Data strip: always visible, shifts up with description */}
                     <div className="flex items-center gap-6 pt-4 border-t border-white/20">
                       {[
                         { label: "Distance", value: ride.distance },
@@ -199,7 +214,7 @@ export default function HomePage() {
                           {si > 0 && <div className="w-px h-5 bg-white/20" />}
                           <div>
                             <p className="text-[10px] text-white/60 uppercase tracking-[0.3em] mb-1">{stat.label}</p>
-                            <p className="text-base text-white font-semibold">{stat.value}</p>
+                            <p className="text-sm text-white font-semibold font-mono">{stat.value}</p>
                           </div>
                         </div>
                       ))}
@@ -336,15 +351,15 @@ export default function HomePage() {
       <section className="w-full bg-[#f7f7f5]">
         {/* Row 1 — large mosaic: 1 wide + 2 stacked */}
         <div className="grid grid-cols-[3fr_2fr] h-[56vw] max-h-[680px] gap-[2px]">
-          <div className="relative overflow-hidden">
-            <Image src={IMG.gallery[0]} alt="HCBCC community" fill sizes="60vw" className="object-cover hover:scale-[1.03] transition-transform duration-700" />
+          <div className="relative overflow-hidden group/g">
+            <Image src={IMG.gallery[0]} alt="HCBCC community" fill sizes="60vw" className="object-cover transition-transform duration-500 ease-out group-hover/g:scale-[1.03] group-hover/g:-rotate-1" />
           </div>
           <div className="grid grid-rows-2 gap-[2px]">
-            <div className="relative overflow-hidden">
-              <Image src={IMG.gallery[1]} alt="HCBCC community" fill sizes="40vw" className="object-cover hover:scale-[1.03] transition-transform duration-700" />
+            <div className="relative overflow-hidden group/g">
+              <Image src={IMG.gallery[1]} alt="HCBCC community" fill sizes="40vw" className="object-cover transition-transform duration-500 ease-out group-hover/g:scale-[1.03] group-hover/g:rotate-1" />
             </div>
-            <div className="relative overflow-hidden">
-              <Image src={IMG.gallery[2]} alt="HCBCC community" fill sizes="40vw" className="object-cover hover:scale-[1.03] transition-transform duration-700" />
+            <div className="relative overflow-hidden group/g">
+              <Image src={IMG.gallery[2]} alt="HCBCC community" fill sizes="40vw" className="object-cover transition-transform duration-500 ease-out group-hover/g:scale-[1.03] group-hover/g:-rotate-1" />
             </div>
           </div>
         </div>
@@ -352,8 +367,14 @@ export default function HomePage() {
         {/* Row 2 — 4 equal strips */}
         <div className="grid grid-cols-4 h-[30vw] max-h-[380px] gap-[2px] mt-[2px]">
           {IMG.gallery.slice(3).map((src, i) => (
-            <div key={src} className="relative overflow-hidden">
-              <Image src={src} alt={`HCBCC community ${i + 4}`} fill sizes="25vw" className="object-cover hover:scale-[1.03] transition-transform duration-700" />
+            <div key={src} className="relative overflow-hidden group/g">
+              <Image
+                src={src}
+                alt={`HCBCC community ${i + 4}`}
+                fill
+                sizes="25vw"
+                className={`object-cover transition-transform duration-500 ease-out group-hover/g:scale-[1.03] ${i % 2 === 0 ? "group-hover/g:-rotate-1" : "group-hover/g:rotate-1"}`}
+              />
             </div>
           ))}
         </div>

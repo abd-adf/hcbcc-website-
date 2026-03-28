@@ -12,7 +12,12 @@ function StravaIcon({ size = 16 }: { size?: number }) {
 
 export default function Footer() {
   return (
-    <footer className="relative bg-[#222] text-white">
+    <footer
+      className="relative bg-[#222] text-white"
+      style={{
+        backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='20' viewBox='0 0 40 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 10 L20 0 L40 10' stroke='white' stroke-width='0.5' fill='none' stroke-opacity='0.07'/%3E%3C/svg%3E")`,
+      }}
+    >
       <div className="absolute right-0 bottom-0 top-[-100%] w-1/2 flex items-center justify-end pointer-events-none overflow-hidden">
         <Image
           src="/images/logo_footer.png"

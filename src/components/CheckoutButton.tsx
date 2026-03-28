@@ -50,11 +50,14 @@ export default function CheckoutButton({ priceId, label, highlight = false }: Ch
       <button
         onClick={handleCheckout}
         disabled={loading || !priceId || priceId === "price_REPLACE_ME"}
-        className={`w-full py-3.5 font-semibold uppercase tracking-[0.25em] text-sm flex items-center justify-center gap-2 transition-colors duration-200 disabled:opacity-30 disabled:cursor-not-allowed ${
+        className={`w-full py-3.5 font-semibold uppercase tracking-[0.25em] text-sm flex items-center justify-center gap-2 transition-all duration-200 disabled:opacity-30 disabled:cursor-not-allowed ${
           highlight
-            ? "bg-[#111111] text-white hover:bg-[#000000]"
+            ? "bg-[#111111] text-white hover:bg-[#000000] hover:shadow-[0_8px_30px_rgba(0,0,0,0.25)]"
             : "border border-[#2f3a47] text-[#2f3a47] hover:bg-[#2f3a47] hover:text-white"
         }`}
+        style={highlight ? {
+          backgroundImage: "none",
+        } : undefined}
       >
         {loading ? (
           <><Loader2 size={14} className="animate-spin" /> Redirecting...</>

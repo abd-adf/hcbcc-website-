@@ -6,6 +6,25 @@ import { useState, useEffect } from "react";
 import { Menu, X, ShoppingBag } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 
+function ScrollProgressBar() {
+  const [progress, setProgress] = useState(0);
+  useEffect(() => {
+    const update = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      setProgress(docHeight > 0 ? (scrollTop / docHeight) * 100 : 0);
+    };
+    window.addEventListener("scroll", update, { passive: true });
+    return () => window.removeEventListener("scroll", update);
+  }, []);
+  return (
+    <div
+      className="absolute top-0 left-0 h-[2px] bg-[#111111] transition-[width] duration-75 pointer-events-none"
+      style={{ width: `${progress}%` }}
+    />
+  );
+}
+
 const links = [
   { href: "/", label: "Home" },
   { href: "/licence", label: "Your Licence" },
@@ -34,6 +53,7 @@ export default function Navbar() {
           : "bg-white/90 backdrop-blur-sm border-b border-[#e3e3e0]"
       }`}
     >
+      <ScrollProgressBar />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24 flex items-center justify-between">
 
         {/* Logo */}
@@ -54,11 +74,12 @@ export default function Navbar() {
               <Link
                 key={l.href}
                 href={l.href}
-                className={`px-3 py-1.5 text-base font-semibold uppercase tracking-[0.15em] transition-colors duration-200 ${
+                className={`relative px-3 py-1.5 text-base font-semibold uppercase tracking-[0.15em] transition-colors duration-200 group/link ${
                   active ? "text-[#111111]" : "text-[#2f3a47] hover:text-[#111111]"
                 }`}
               >
                 {l.label}
+                <span className={`absolute bottom-0 left-3 right-3 h-[1.5px] bg-[#111111] origin-left transition-transform duration-300 ${active ? "scale-x-100" : "scale-x-0 group-hover/link:scale-x-100"}`} />
               </Link>
             );
           })}

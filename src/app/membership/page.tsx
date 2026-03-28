@@ -94,13 +94,9 @@ export default function MembershipPage() {
           ))}
         </div>
 
-        <div className="mt-10 border-t border-[#e8e8e5] pt-8 flex flex-col gap-1.5">
+        <div className="mt-10 border-t border-[#e8e8e5] pt-8">
           <p className="text-sm text-[#a0aab4] leading-relaxed">
-            All memberships include access to club rides and the HC community. Cancel anytime for the monthly plan.
-          </p>
-          <p className="text-sm text-[#a0aab4]">
-            Kits & jerseys are purchased separately from the{" "}
-            <a href="/shop" className="text-[#111111] hover:underline">shop</a>.
+            After subscribing, you'll receive a confirmation email with a link to your billing portal — where you can cancel or manage your membership at any time, in just a few clicks.
           </p>
         </div>
       </div>

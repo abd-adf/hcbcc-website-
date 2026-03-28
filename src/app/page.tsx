@@ -6,10 +6,6 @@ import EventsSection from "@/components/EventsSection";
 
 const IMG = {
   hero:      "/images/cc6bc3e4-97b7-452e-99d7-8dff2e04bd65.jpeg",
-  wavre:      "/images/21009ef8-71c0-4013-9e1a-564c1853219b.jpeg",
-  huldenberg: "/images/21009ef8-71c0-4013-9e1a-564c1853219b.jpeg",
-  rosieres:   "/images/3a112ba2-0941-44d0-8eb0-52900f01e86b.jpeg",
-  coffee:    "/images/f0cbdc69-1547-4a45-94bd-f46ecafe2b37.jpeg",
   clubhouse: "/images/0ac1429c-01e0-4e10-9fbf-914d157ad04b.jpeg",
   gallery: [
     "/images/5feb8e55-8d91-4d76-acac-223322e13c0d.jpeg",
@@ -22,62 +18,75 @@ const IMG = {
   ],
 };
 
-const tuesdayRides = [
+const allRides = [
   {
     id: "wavre",
+    day: "Tuesday",
     time: "6:30 PM",
     name: "Tour de Wavre",
     subtitle: "HIT Training",
     distance: "50 km",
     pace: "32–37 km/h",
     description: "Punchy rides, fast peloton. A proper 50 km HIT session through Wavre. Drop your excuses at the door.",
-    image: IMG.wavre,
+    tag: null as string | null,
   },
   {
     id: "huldenberg",
+    day: "Tuesday",
     time: "6:30 PM",
     name: "Tour d'Huldenberg",
     subtitle: "HIT Training",
     distance: "50 km",
     pace: "29–32 km/h",
     description: "Punchy climbs and fast transitions through Huldenberg. Hard effort, great scenery, no room for passengers.",
-    image: IMG.huldenberg,
+    tag: null as string | null,
+  },
+  {
+    id: "soignes",
+    day: "Tuesday",
+    time: "6:30 PM",
+    name: "Tour de Soignes",
+    subtitle: "Gravel Ride",
+    distance: "~50 km",
+    pace: "28–30 km/h",
+    description: "Fast, hilly and technical gravel through the Sonian Forest. For experienced gravel riders. Try not to get dropped — 4 regroup stops on the way.",
+    tag: "Gravel",
   },
   {
     id: "chill",
+    day: "Tuesday",
     time: "6:30 PM",
     name: "Tour du Chill",
     subtitle: "Social Ride",
-    tag: "Beginner Friendly",
     distance: "50 km",
     pace: "26–28 km/h",
     description: "No-drop, social pace. Mainly Zone 2 and Zone 3. Everyone welcome. Just show up and have fun with the peloton.",
-    image: "/images/22965e34-ba8e-432d-bc98-80b9e7574447.jpeg",
+    tag: "All Riders",
   },
   {
     id: "rosieres",
+    day: "Tuesday",
     time: "6:30 PM",
     name: "Tour de Rosières",
     subtitle: "Women's Ride",
     distance: "~45 km",
     pace: "Punchy",
     description: "Bi-weekly women-focused ride. Punchy climbs, fast transitions, strong community. Open to all levels who love to push.",
-    image: IMG.rosieres,
+    tag: null as string | null,
   },
-];
-
-const sundayRides = [
   {
     id: "coffee",
+    day: "Sunday",
     time: "9:00 AM",
     name: "Sunday Coffee Ride",
     subtitle: "Social Ride",
     distance: "80–100 km",
     pace: "Zone 2–3",
     description: "No-drop, social pace. Mainly Zone 2 and Zone 3 with some pushes on the bergs. We regroup uphill.",
-    image: IMG.coffee,
+    tag: null as string | null,
   },
 ];
+
 
 
 export default function HomePage() {
@@ -164,114 +173,63 @@ export default function HomePage() {
             </a>
           </div>
 
-          {/* TUESDAY */}
-          <div className="mb-12">
-            <div className="flex items-baseline justify-between mb-6 pb-5 border-b border-[#e8e8e5]">
-              <div className="flex items-baseline gap-5">
-                <h3 className="font-heading text-5xl sm:text-6xl text-[#2f3a47]">TUESDAY</h3>
-                <span className="font-heading text-2xl sm:text-3xl text-[#a0aab4]" style={{ textShadow: "none" }}>6:30 PM</span>
-              </div>
-              <span className="text-sm uppercase tracking-[0.3em] text-[#a0aab4] font-bold">Every week · Spring to Fall</span>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-              {tuesdayRides.map((ride) => (
-                <div key={ride.id} className="group relative overflow-hidden h-[480px] cursor-pointer">
-                  <Image
-                    src={ride.image}
-                    alt={ride.name}
-                    fill
-                    sizes="(max-width: 640px) 100vw, 50vw"
-                    className="object-cover object-center group-hover:scale-[1.05] transition-transform duration-700 ease-out"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-transparent group-hover:from-black/98 transition-all duration-500" />
-                  <div className="absolute top-5 left-5">
-                    <div className="flex items-center gap-2">
-                      <span className="inline-block px-3 py-1.5 text-base uppercase tracking-[0.2em] text-white font-bold bg-black">
-                        {ride.subtitle}
-                      </span>
-                      {"tag" in ride && ride.tag && (
-                        <span className="inline-block px-3 py-1.5 text-base uppercase tracking-[0.2em] text-black font-bold bg-white">
-                          {ride.tag}
-                        </span>
-                      )}
-                    </div>
-                    <h4 className="font-heading text-3xl text-white leading-tight mt-2">{ride.name}</h4>
-                  </div>
-
-                  {/* Static bottom: stats always visible */}
-                  <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
-                    {/* Description: hidden, slides up on hover */}
-                    <p className="text-white/90 text-sm leading-relaxed mb-4 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-out">
-                      {ride.description}
-                    </p>
-                    {/* Data strip: always visible, shifts up with description */}
-                    <div className="flex items-center gap-6 pt-4 border-t border-white/20">
-                      {[
-                        { label: "Distance", value: ride.distance },
-                        { label: "Pace",     value: ride.pace },
-                      ].map((stat, si) => (
-                        <div key={stat.label} className="flex items-center gap-6">
-                          {si > 0 && <div className="w-px h-5 bg-white/20" />}
-                          <div>
-                            <p className="text-[10px] text-white/60 uppercase tracking-[0.3em] mb-1">{stat.label}</p>
-                            <p className="text-sm text-white font-semibold font-mono">{stat.value}</p>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* SUNDAY */}
+          {/* Ride rows — programme table */}
           <div>
-            <div className="flex items-baseline justify-between mb-6 pb-5 border-b border-[#e8e8e5]">
-              <div className="flex items-baseline gap-5">
-                <h3 className="font-heading text-5xl sm:text-6xl text-[#2f3a47]">SUNDAY</h3>
-                <span className="font-heading text-2xl sm:text-3xl text-[#a0aab4]" style={{ textShadow: "none" }}>9:00 AM</span>
-              </div>
-              <span className="text-sm uppercase tracking-[0.3em] text-[#a0aab4] font-bold">Every week</span>
-            </div>
-            <div className="grid grid-cols-1 gap-3">
-              {sundayRides.map((ride) => (
-                <div key={ride.id} className="group relative overflow-hidden h-[340px]">
-                  <Image
-                    src={ride.image}
-                    alt={ride.name}
-                    fill
-                    sizes="100vw"
-                    className="object-cover object-center group-hover:scale-[1.03] transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
-                  <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8">
-                    <span className="text-[9px] uppercase tracking-[0.4em] text-white font-semibold mb-2">
-                      {ride.subtitle}
-                    </span>
-                    <h4 className="font-heading text-4xl sm:text-5xl text-white leading-tight mb-2">{ride.name}</h4>
-                    <p className="text-white/80 text-base leading-relaxed mb-5 max-w-md">
-                      {ride.description}
-                    </p>
-                    <div className="flex items-center gap-5 pt-4 border-t border-white/10">
-                      {[
-                        { label: "Time",     value: ride.time },
-                        { label: "Distance", value: ride.distance },
-                        { label: "Pace",     value: ride.pace },
-                      ].map((stat, si) => (
-                        <div key={stat.label} className="flex items-center gap-5">
-                          {si > 0 && <div className="w-px h-4 bg-white/10" />}
-                          <div>
-                            <p className="text-[8px] text-white/60 uppercase tracking-[0.3em] mb-0.5">{stat.label}</p>
-                            <p className="text-xs text-white/90 font-medium">{stat.value}</p>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
+            {["Tuesday", "Sunday"].map((day) => {
+              const rides = allRides.filter((r) => r.day === day);
+              const dayTime = day === "Tuesday" ? "6:30 PM · Every week" : "9:00 AM · Every week";
+              return (
+                <div key={day} className="mb-2">
+                  {/* Day label */}
+                  <div className="flex items-baseline gap-4 py-4 border-t-2 border-[#111111]">
+                    <span className="font-heading text-4xl sm:text-5xl text-[#111111]">{day.toUpperCase()}</span>
+                    <span className="text-xs uppercase tracking-[0.4em] text-[#a0aab4] font-semibold">{dayTime}</span>
                   </div>
+
+                  {/* Ride rows */}
+                  {rides.map((ride) => (
+                    <div
+                      key={ride.id}
+                      className="group relative flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-0 py-5 border-t border-[#e8e8e5] pl-0 hover:pl-4 transition-all duration-300 cursor-default"
+                    >
+                      {/* Accent bar */}
+                      <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-[#111111] origin-top scale-y-0 group-hover:scale-y-100 transition-transform duration-300" />
+
+                      {/* Subtitle + tag */}
+                      <div className="sm:w-48 shrink-0 flex items-center gap-2 flex-wrap">
+                        <span className="text-[10px] uppercase tracking-[0.35em] text-[#a0aab4] font-semibold">{ride.subtitle}</span>
+                        {ride.tag && (
+                          <span className="px-2 py-0.5 text-[9px] uppercase tracking-[0.2em] font-bold bg-[#111111] text-white">{ride.tag}</span>
+                        )}
+                      </div>
+
+                      {/* Name + description */}
+                      <div className="flex-1 min-w-0">
+                        <h4 className="font-heading text-3xl sm:text-4xl text-[#2f3a47] group-hover:text-[#111111] transition-colors leading-none mb-1">
+                          {ride.name}
+                        </h4>
+                        <p className="text-sm text-[#a0aab4] leading-relaxed max-w-lg opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-300">
+                          {ride.description}
+                        </p>
+                      </div>
+
+                      {/* Stats */}
+                      <div className="sm:w-56 shrink-0 flex items-start gap-6 pt-1">
+                        <div>
+                          <p className="text-[9px] uppercase tracking-[0.35em] text-[#a0aab4] mb-0.5">Distance</p>
+                          <p className="text-sm font-semibold text-[#2f3a47] font-mono">{ride.distance}</p>
+                        </div>
+                        <div className="w-px h-4 bg-[#e8e8e5] mt-1" />
+                        <div>
+                          <p className="text-[9px] uppercase tracking-[0.35em] text-[#a0aab4] mb-0.5">Pace</p>
+                          <p className="text-sm font-semibold text-[#2f3a47] font-mono">{ride.pace}</p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
+              );
+            })}
           </div>
 
         </div>

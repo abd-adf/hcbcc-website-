@@ -1,63 +1,6 @@
-import ProductCard from "@/components/ProductCard";
+import { ArrowRight } from "lucide-react";
 
-const products = [
-  {
-    id: "jersey-light-thistle",
-    title: "HC Jersey: Light Thistle",
-    price: 89,
-    priceId: "price_1TE7waGXu3buwWTASl9UO2R6",
-    category: "Jersey",
-    tag: "New",
-    description: "Corsé Extra by Gobik. Lightweight race-fit jersey in Light Thistle colorway.",
-  },
-  {
-    id: "jersey-shadow-pink",
-    title: "HC Jersey: Shadow Pink Fluor",
-    price: 89,
-    priceId: "price_1TDor7GXu3buwWTAEv17ZTHm",
-    category: "Jersey",
-    tag: "New",
-    description: "Corsé Extra by Gobik. High-visibility fluor pink with HC branding.",
-  },
-  {
-    id: "jersey-chemical-forest",
-    title: "HC Jersey: Chemical Forest",
-    price: 89,
-    priceId: "price_1TDokDGXu3buwWTAB8BW3yAC",
-    category: "Jersey",
-    tag: "Limited",
-    description: "Corsé Extra by Gobik. Deep forest green with subtle HC detailing.",
-  },
-  {
-    id: "jersey-night-haze",
-    title: "HC Jersey: Night Haze",
-    price: 99,
-    priceId: "price_REPLACE_ME",
-    category: "Jersey",
-    tag: "New",
-    description: "Corsé Extra by Gobik. Moody dark haze, perfect for early morning rides.",
-  },
-  {
-    id: "bib-shorts",
-    title: "HC Bib Shorts",
-    price: 139,
-    priceId: "price_REPLACE_ME",
-    category: "Bibs",
-    tag: "Essentials",
-    description: "Premium chamois, race-cut bibs with HC logo. For long and fast days.",
-  },
-  {
-    id: "tshirt-organic",
-    title: "HC Organic T-Shirt",
-    price: 25,
-    priceId: "price_REPLACE_ME",
-    category: "Casual",
-    tag: "Lifestyle",
-    description: "100% organic cotton. Minimal HC logo. Wear it off the bike.",
-  },
-];
-
-const categories = ["All", "Jersey", "Bibs", "Casual"];
+const SUMUP_SHOP_URL = "https://horscategoriebrussels.cc/page/jerseys";
 
 export default function ShopPage() {
   return (
@@ -74,26 +17,24 @@ export default function ShopPage() {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 -mt-6 pb-32">
-
-        <div className="flex items-center gap-6 flex-wrap mb-12 border-b border-[#e8e8e5] pb-8">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              className={`text-sm uppercase tracking-[0.35em] transition-colors pb-0.5 ${
-                cat === "All"
-                  ? "text-[#111111] border-b border-[#111111]"
-                  : "text-[#a0aab4] hover:text-[#2f3a47]"
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-[#e8e8e5]">
-          {products.map((product) => (
-            <ProductCard key={product.id} {...product} />
-          ))}
+        <div className="bg-white border border-[#e8e8e5] p-12 sm:p-16 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-10">
+          <div>
+            <p className="text-sm uppercase tracking-[0.5em] text-[#a0aab4] mb-3">Buy online · Pick up at the clubhouse</p>
+            <h2 className="font-heading text-4xl sm:text-5xl text-[#2f3a47] mb-4 leading-[0.9]">
+              SHOP THE<br />JERSEYS
+            </h2>
+            <p className="text-[#6b7a8d] text-base leading-relaxed max-w-sm">
+              All HC kit is available on our dedicated store. Choose your model, select your size, and pick it up at the clubhouse.
+            </p>
+          </div>
+          <a
+            href={SUMUP_SHOP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0 inline-flex items-center gap-2.5 px-8 py-4 bg-[#111111] text-white font-semibold uppercase tracking-[0.2em] text-sm hover:bg-[#000000] transition-colors"
+          >
+            Go to the shop <ArrowRight size={14} />
+          </a>
         </div>
       </div>
     </div>

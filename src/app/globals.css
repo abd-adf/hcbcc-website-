@@ -54,11 +54,6 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Bebas Neue Pro', var(--font-bebas), system-ui, sans-serif;
   font-style: italic;
   letter-spacing: 0em;
-  text-shadow: 0 0 6px #0009;
-}
-
-h2, h3 {
-  text-shadow: none;
 }
 
 ::-webkit-scrollbar { width: 4px; }

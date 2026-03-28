@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+/* ── Bebas Neue Pro Italic (local) ─────────────────────────────
+   Drop BebasNeuePro-Italic.woff2 in /public/fonts/ to activate.
+   ──────────────────────────────────────────────────────────── */
+@font-face {
+  font-family: 'Bebas Neue Pro';
+  src: url('/fonts/BebasNeuePro-Italic.woff2') format('woff2');
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@theme inline {
+  /* Brand */
+  --color-teal:        #111111;
+  --color-teal-dark:   #000000;
+  --color-teal-light:  #ebebeb;
+  --color-slate:       #2f3a47;
+
+  /* Light surfaces */
+  --color-bg:          #f7f7f5;
+  --color-surface:     #ffffff;
+  --color-surface-2:   #f0f0ee;
+  --color-border:      #e8e8e5;
+
+  /* Text */
+  --color-foreground:  #2f3a47;
+  --color-muted:       #6b7a8d;
+  --color-subtle:      #a0aab4;
+
+  --font-heading:      var(--font-bebas);
+  --font-sans:         var(--font-open-sans);
+}
+
+:root {
+  --background: #f7f7f5;
+  --foreground: #2f3a47;
+}
+
+* { box-sizing: border-box; letter-spacing: 0 !important; }
+button { cursor: pointer; }
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-open-sans), 'DM Sans', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Bebas Neue Pro', var(--font-bebas), system-ui, sans-serif;
+  font-style: italic;
+  letter-spacing: 0em;
+  text-shadow: 0 0 6px #0009;
+}
+
+h2, h3 {
+  text-shadow: none;
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #111111; border-radius: 0; }

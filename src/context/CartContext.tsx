@@ -8,12 +8,13 @@ export interface CartItem {
   price: number;
   quantity: number;
   image?: string;
+  size?: string;
 }
 
 interface CartContextValue {
   items: CartItem[];
   add: (item: Omit<CartItem, "quantity">) => void;
-  remove: (priceId: string) => void;
+  remove: (priceId: string, size?: string) => void;
   clear: () => void;
   total: number;
   count: number;
@@ -38,18 +39,18 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   function add(item: Omit<CartItem, "quantity">) {
     setItems((prev) => {
-      const existing = prev.find((i) => i.priceId === item.priceId);
+      const existing = prev.find((i) => i.priceId === item.priceId && i.size === item.size);
       if (existing)
         return prev.map((i) =>
-          i.priceId === item.priceId ? { ...i, quantity: i.quantity + 1 } : i
+          i.priceId === item.priceId && i.size === item.size ? { ...i, quantity: i.quantity + 1 } : i
         );
       return [...prev, { ...item, quantity: 1 }];
     });
     setOpen(true);
   }
 
-  function remove(priceId: string) {
-    setItems((prev) => prev.filter((i) => i.priceId !== priceId));
+  function remove(priceId: string, size?: string) {
+    setItems((prev) => prev.filter((i) => !(i.priceId === priceId && i.size === size)));
   }
 
   function clear() {

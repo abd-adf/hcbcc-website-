@@ -10,14 +10,16 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
 
     // Support both single priceId (membership) and items array (cart)
-    const lineItems: { priceId: string; quantity: number }[] = body.items
+    const lineItems: { priceId: string; quantity: number; size?: string }[] = body.items
       ?? [{ priceId: body.priceId, quantity: 1 }];
+    const successUrl = body.items
+      ? `${process.env.NEXT_PUBLIC_BASE_URL}/thankyou-product`
+      : `${process.env.NEXT_PUBLIC_BASE_URL}/thankyou`;
 
     if (!lineItems.length || lineItems.some((i) => !i.priceId)) {
       return NextResponse.json({ error: "Missing priceId" }, { status: 400 });
     }
 
-    // Auto-detect mode: if any price is recurring → subscription, else payment
     const prices = await Promise.all(
       lineItems.map((i) => stripe.prices.retrieve(i.priceId))
     );
@@ -27,7 +29,7 @@ export async function POST(request: NextRequest) {
       mode,
       payment_method_types: ["card"],
       line_items: lineItems.map((i) => ({ price: i.priceId, quantity: i.quantity })),
-      success_url: `${process.env.NEXT_PUBLIC_BASE_URL}/?success=true`,
+      success_url: successUrl,
       cancel_url: `${process.env.NEXT_PUBLIC_BASE_URL}/?canceled=true`,
     });
 

@@ -27,6 +27,7 @@ function ScrollProgressBar() {
 
 const links = [
   { href: "/", label: "Home" },
+  { href: "/#collection", label: "Kits & Jerseys" },
   { href: "/licence", label: "Your Licence" },
   { href: "/ride-etiquette", label: "Ride Etiquette" },
 ];
@@ -69,7 +70,7 @@ export default function Navbar() {
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-1">
           {links.map((l) => {
-            const active = l.href === "/" ? pathname === "/" : pathname.startsWith(l.href);
+            const active = l.href === "/" ? pathname === "/" : l.href.startsWith("/#") ? false : pathname.startsWith(l.href);
             return (
               <Link
                 key={l.href}
@@ -137,7 +138,7 @@ export default function Navbar() {
       >
         <div className="bg-white border-t border-[#e3e3e0] px-4 py-5 flex flex-col gap-1">
           {links.map((l) => {
-            const active = l.href === "/" ? pathname === "/" : pathname.startsWith(l.href);
+            const active = l.href === "/" ? pathname === "/" : l.href.startsWith("/#") ? false : pathname.startsWith(l.href);
             return (
               <Link
                 key={l.href}

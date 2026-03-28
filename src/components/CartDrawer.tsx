@@ -96,12 +96,17 @@ export default function CartDrawer() {
 
                   <div className="flex-1 min-w-0">
                     <p className="text-base font-medium text-[#2f3a47] leading-snug truncate">{item.title}</p>
-                    <p className="text-sm text-[#a0aab4] mt-0.5">Qty: {item.quantity}</p>
+                    <div className="flex items-center gap-2 mt-0.5">
+                      {item.size && (
+                        <span className="text-xs font-semibold uppercase tracking-wider text-[#2f3a47] border border-[#e8e8e5] px-1.5 py-0.5">{item.size}</span>
+                      )}
+                      <p className="text-sm text-[#a0aab4]">Qty: {item.quantity}</p>
+                    </div>
                     <p className="text-base text-[#111111] font-semibold mt-0.5">€{item.price * item.quantity}</p>
                   </div>
 
                   <button
-                    onClick={() => remove(item.priceId)}
+                    onClick={() => remove(item.priceId, item.size)}
                     className="p-1.5 text-[#a0aab4] hover:text-red-400 transition-colors"
                     aria-label="Remove item"
                   >

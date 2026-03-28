@@ -24,6 +24,9 @@ export const metadata: Metadata = {
   description:
     "A premium cycling club based in Brussels. Community rides, quality kits, and FCWB membership.",
   keywords: ["cycling", "Brussels", "HCBCC", "vélo", "Bruxelles", "club cycliste"],
+  icons: {
+    icon: "/images/favicon.png",
+  },
 };
 
 export default function RootLayout({
@@ -33,6 +36,7 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${bebasNeue.variable} ${dmSans.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col bg-[#f7f7f5] text-[#2f3a47]">
         <CartProvider>

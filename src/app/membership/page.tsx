@@ -62,7 +62,7 @@ export default function MembershipPage() {
             >
               {plan.highlight && (
                 <div className="absolute top-6 right-[-30px] w-36 text-center bg-[#111111] text-white text-[9px] font-bold uppercase tracking-[0.2em] py-1.5 rotate-45 shadow-md">
-                  Best Value
+                  Best Deal
                 </div>
               )}
 

@@ -148,7 +148,7 @@ export default function HomePage() {
               <p className="text-[#111111] text-sm uppercase tracking-[0.5em] mb-3">Weekly Schedule</p>
               <h2 className="font-heading text-5xl sm:text-7xl text-[#2f3a47]">JOIN US FOR A RIDE</h2>
               <p className="text-[#6b7a8d] mt-3 text-base max-w-sm leading-relaxed">
-                Two days, multiple rides. Whatever your level, there&apos;s a wheel to follow.
+                Two days, multiple rides. HC is built for confirmed and experienced riders — beginners are welcome on the Tour du Chill only. Curious? Come for a test ride, but check the Strava descriptions first to make sure the pace matches yours.
               </p>
             </div>
             <a
@@ -305,6 +305,9 @@ export default function HomePage() {
                   All rides depart and return here. Come early, grab a coffee,
                   chat with the crew. More than a meeting point,
                   it&apos;s where the club lives.
+                </p>
+                <p className="text-[#6b7a8d] text-base leading-relaxed max-w-sm mt-4">
+                  French, English, Dutch, Portuguese, Turkish, Italian, Greek — HC is as international as Brussels itself. Wherever you&apos;re from, you&apos;ll find your people here.
                 </p>
               </div>
 

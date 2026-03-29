@@ -1,11 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { ShoppingBag } from "lucide-react";
-import { useCart } from "@/context/CartContext";
-import { useState } from "react";
-
-const SIZES = ["XS", "S", "M", "L", "XL"];
 
 export interface ProductCardProps {
   id: string;
@@ -16,20 +11,18 @@ export interface ProductCardProps {
   description?: string;
   tag?: string;
   category?: string;
+  externalUrl?: string;
 }
 
 export default function ProductCard({
   title,
   price,
-  priceId,
   image,
   description,
   tag,
   category,
+  externalUrl,
 }: ProductCardProps) {
-  const { add } = useCart();
-  const [size, setSize] = useState<string>("");
-
   return (
     <article className="group relative bg-white flex flex-col overflow-hidden hover:bg-[#fafaf9] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(0,0,0,0.10)] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-[2px] before:bg-[#111111] before:origin-bottom before:scale-y-0 hover:before:scale-y-100 before:transition-transform before:duration-300 before:z-10">
 
@@ -69,35 +62,18 @@ export default function ProductCard({
           <p className="text-sm text-[#a0aab4] leading-relaxed">{description}</p>
         )}
 
-        <div className="pt-4 border-t border-[#e8e8e5]">
-          <div className="flex items-center justify-between mb-3">
-            <span className="font-heading text-2xl text-[#2f3a47] italic">€{price}</span>
-          </div>
-          {/* Size selector */}
-          <div className="flex gap-1.5 mb-3">
-            {SIZES.map((s) => (
-              <button
-                key={s}
-                onClick={() => setSize(s)}
-                className={`w-8 h-8 text-xs font-semibold uppercase border transition-all duration-150 ${
-                  size === s
-                    ? "bg-[#111111] text-white border-[#111111]"
-                    : "bg-white text-[#6b7a8d] border-[#e8e8e5] hover:border-[#2f3a47] hover:text-[#2f3a47]"
-                }`}
-              >
-                {s}
-              </button>
-            ))}
-          </div>
-          <button
-            onClick={() => { if (size) add({ priceId, title, price, image, size }); }}
-            disabled={!priceId || priceId === "price_REPLACE_ME" || !size}
-            aria-label={`Add ${title} to cart`}
-            className="w-full flex items-center justify-center gap-1.5 px-3.5 py-2 bg-[#f7f7f5] text-sm uppercase tracking-[0.2em] text-[#6b7a8d] hover:bg-[#111111] hover:text-white font-semibold transition-all duration-200 disabled:opacity-30 disabled:cursor-not-allowed"
-          >
-            <ShoppingBag size={13} />
-            {size ? "Add to cart" : "Select a size"}
-          </button>
+        <div className="pt-4 border-t border-[#e8e8e5] flex items-center justify-between">
+          <span className="font-heading text-2xl text-[#2f3a47] italic">€{price}</span>
+          {externalUrl && (
+            <a
+              href={externalUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 bg-[#111111] text-white text-xs font-semibold uppercase tracking-[0.2em] hover:bg-[#000000] transition-colors"
+            >
+              Order
+            </a>
+          )}
         </div>
       </div>
     </article>

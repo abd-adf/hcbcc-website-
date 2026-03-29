@@ -3,8 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
-import { Menu, X, ShoppingBag } from "lucide-react";
-import { useCart } from "@/context/CartContext";
+import { Menu, X } from "lucide-react";
 
 function ScrollProgressBar() {
   const [progress, setProgress] = useState(0);
@@ -36,7 +35,6 @@ export default function Navbar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const { count, setOpen: setCartOpen } = useCart();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
@@ -90,34 +88,10 @@ export default function Navbar() {
           >
             Become a Member
           </Link>
-          <button
-            onClick={() => setCartOpen(true)}
-            className="relative ml-3 p-2 text-[#6b7a8d] hover:text-[#111111] transition-colors"
-            aria-label="Open cart"
-          >
-            <ShoppingBag size={18} />
-            {count > 0 && (
-              <span className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-[#111111] text-white text-[9px] font-bold rounded-full flex items-center justify-center">
-                {count}
-              </span>
-            )}
-          </button>
         </nav>
 
-        {/* Mobile: cart + hamburger */}
-        <div className="flex md:hidden items-center gap-1">
-          <button
-            onClick={() => setCartOpen(true)}
-            className="relative p-2 text-[#6b7a8d] hover:text-[#111111] transition-colors"
-            aria-label="Open cart"
-          >
-            <ShoppingBag size={18} />
-            {count > 0 && (
-              <span className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-[#111111] text-white text-[9px] font-bold rounded-full flex items-center justify-center">
-                {count}
-              </span>
-            )}
-          </button>
+        {/* Mobile: hamburger */}
+        <div className="flex md:hidden items-center">
           <button
             className="p-1 text-[#6b7a8d] hover:text-[#111111] transition-colors"
             onClick={() => setOpen((v) => !v)}

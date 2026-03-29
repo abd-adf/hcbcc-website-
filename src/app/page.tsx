@@ -70,7 +70,7 @@ const allRides = [
     name: "Tour de Rosières",
     subtitle: "Women's Ride",
     distance: "~45 km",
-    pace: "Punchy",
+    pace: "28–30 km/h",
     description: "Bi-weekly women-focused ride. Punchy climbs, fast transitions, strong community. Open to all levels who love to push.",
     tag: null as string | null,
   },
@@ -84,6 +84,17 @@ const allRides = [
     pace: "Zone 2–3",
     description: "No-drop, social pace. Mainly Zone 2 and Zone 3 with some pushes on the bergs. We regroup uphill.",
     tag: null as string | null,
+  },
+  {
+    id: "espresso",
+    day: "Sunday",
+    time: "9:00 AM",
+    name: "Espresso Ride",
+    subtitle: "Race Pace",
+    distance: "80–100 km",
+    pace: "Zone 3–4+",
+    description: "Not every week — check Strava. Fast, intense, almost race mode. Z3-Z4 and above. Try not to get dropped.",
+    tag: "Occasional",
   },
 ];
 
@@ -160,24 +171,39 @@ export default function HomePage() {
                 Two days, multiple rides. HC is built for confirmed and experienced riders — beginners are welcome on the Tour du Chill only. Curious? Come for a test ride, but check the Strava descriptions first to make sure the pace matches yours.
               </p>
             </div>
-            <a
-              href="https://www.strava.com/clubs/horscategoriebrussels"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="shrink-0 flex items-center gap-2 text-sm uppercase tracking-[0.3em] text-[#6b7a8d] hover:text-[#111111] transition-colors"
-            >
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169" />
-              </svg>
-              Follow on Strava
-            </a>
+            <div className="shrink-0 flex flex-col gap-3">
+              <a
+                href="https://www.strava.com/clubs/horscategoriebrussels"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 px-5 py-3 border border-[#e8e8e5] bg-white hover:border-[#111111] hover:text-[#111111] text-[#2f3a47] transition-colors group"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" className="text-[#FC4C02] shrink-0" aria-hidden="true">
+                  <path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169" />
+                </svg>
+                <span className="text-sm font-semibold uppercase tracking-[0.2em]">Follow on Strava</span>
+              </a>
+              <a
+                href="https://www.instagram.com/horscategoriebrussels"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 px-5 py-3 border border-[#e8e8e5] bg-white hover:border-[#111111] hover:text-[#111111] text-[#2f3a47] transition-colors group"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="shrink-0" aria-hidden="true">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                  <circle cx="12" cy="12" r="4"/>
+                  <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+                </svg>
+                <span className="text-sm font-semibold uppercase tracking-[0.2em]">Follow on Instagram</span>
+              </a>
+            </div>
           </div>
 
           {/* Ride rows — programme table */}
           <div>
             {["Tuesday", "Sunday"].map((day) => {
               const rides = allRides.filter((r) => r.day === day);
-              const dayTime = day === "Tuesday" ? "6:30 PM · Every week" : "9:00 AM · Every week";
+              const dayTime = day === "Tuesday" ? "6:30 PM · Every week" : "9:00 AM · Weekly + Occasional Espresso";
               return (
                 <div key={day} className="mb-2">
                   {/* Day label */}
@@ -197,7 +223,7 @@ export default function HomePage() {
 
                       {/* Subtitle + tag */}
                       <div className="sm:w-48 shrink-0 flex items-center gap-2 flex-wrap">
-                        <span className="text-[10px] uppercase tracking-[0.35em] text-[#a0aab4] font-semibold">{ride.subtitle}</span>
+                        <span className="text-xs uppercase tracking-[0.4em] text-[#a0aab4] font-semibold">{ride.subtitle}</span>
                         {ride.tag && (
                           <span className="px-2 py-0.5 text-[9px] uppercase tracking-[0.2em] font-bold bg-[#111111] text-white">{ride.tag}</span>
                         )}
@@ -216,12 +242,12 @@ export default function HomePage() {
                       {/* Stats */}
                       <div className="sm:w-56 shrink-0 flex items-start gap-6 pt-1">
                         <div>
-                          <p className="text-[9px] uppercase tracking-[0.35em] text-[#a0aab4] mb-0.5">Distance</p>
+                          <p className="text-xs uppercase tracking-[0.4em] text-[#a0aab4] mb-0.5">Distance</p>
                           <p className="text-sm font-semibold text-[#2f3a47] font-mono">{ride.distance}</p>
                         </div>
                         <div className="w-px h-4 bg-[#e8e8e5] mt-1" />
                         <div>
-                          <p className="text-[9px] uppercase tracking-[0.35em] text-[#a0aab4] mb-0.5">Pace</p>
+                          <p className="text-xs uppercase tracking-[0.4em] text-[#a0aab4] mb-0.5">Pace</p>
                           <p className="text-sm font-semibold text-[#2f3a47] font-mono">{ride.pace}</p>
                         </div>
                       </div>

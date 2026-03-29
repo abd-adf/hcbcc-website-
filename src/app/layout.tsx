@@ -3,8 +3,6 @@ import { Bebas_Neue, DM_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import CartDrawer from "@/components/CartDrawer";
-import { CartProvider } from "@/context/CartContext";
 
 const bebasNeue = Bebas_Neue({
   weight: "400",
@@ -39,12 +37,9 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col bg-[#f7f7f5] text-[#2f3a47]">
-        <CartProvider>
           <Navbar />
-          <CartDrawer />
           <main className="flex-1 pt-16">{children}</main>
           <Footer />
-        </CartProvider>
       </body>
     </html>
   );

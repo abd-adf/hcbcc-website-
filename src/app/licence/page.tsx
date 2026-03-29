@@ -48,7 +48,7 @@ export default function LicencePage() {
 
             {/* Insurance */}
             <div className="bg-white py-8 pr-8">
-              <p className="text-sm uppercase tracking-[0.4em] text-[#111111] font-semibold mb-5">
+              <p className="text-sm uppercase tracking-[0.5em] text-[#111111] mb-5">
                 24/7 Insurance Coverage
               </p>
               <ul className="space-y-3.5">
@@ -66,7 +66,7 @@ export default function LicencePage() {
 
             {/* Roadside */}
             <div className="bg-white py-8 pl-8">
-              <p className="text-sm uppercase tracking-[0.4em] text-[#111111] font-semibold mb-5">
+              <p className="text-sm uppercase tracking-[0.5em] text-[#111111] mb-5">
                 Roadside Assistance
               </p>
               <ul className="space-y-3.5">

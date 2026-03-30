@@ -132,8 +132,8 @@ export default function HomePage() {
             <span className="text-black text-sm uppercase tracking-[0.45em] font-bold">Brussels Cycling Club</span>
           </div>
           <h1 className="font-heading text-[clamp(5rem,18vw,14rem)] leading-[0.85] text-white mb-6 overflow-hidden">
-            <span className="block overflow-hidden"><span className="word-reveal" style={{ animationDelay: "0ms" }}>HORS</span></span>
-            <span className="block overflow-hidden"><span className="word-reveal" style={{ animationDelay: "80ms" }}>CATÉGORIE</span></span>
+            <span className="block overflow-hidden" style={{ marginLeft: "4.15ch" }}><span className="word-reveal" style={{ animationDelay: "0ms" }}>H<span style={{ color: "transparent" }}>O</span>RS</span></span>
+            <span className="block overflow-hidden"><span className="word-reveal" style={{ animationDelay: "80ms" }}>CATÉG<span style={{ color: "transparent" }}>O</span>RIE</span></span>
           </h1>
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
             <p className="text-white/85 text-base sm:text-lg max-w-sm leading-relaxed">

@@ -1,4 +1,12 @@
+import type { Metadata } from "next";
 import { Check, ArrowRight } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "FCWB Licence",
+  description:
+    "How to get your FCWB cycling licence through Hors Catégorie Brussels. Race legally in Belgium and access all HC rides with full insurance.",
+  alternates: { canonical: "https://horscategoriebrussels.cc/licence" },
+};
 
 export default function LicencePage() {
   return (

@@ -1,3 +1,12 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Ride Etiquette",
+  description:
+    "The HC Brussels ride rules. How to ride safely and respectfully in our peloton — from line discipline to communication and no-drop policy.",
+  alternates: { canonical: "https://horscategoriebrussels.cc/ride-etiquette" },
+};
+
 const bigFive = [
   {
     number: "01",

@@ -49,15 +49,10 @@ export default function FeaturedProducts() {
               {p.title}
             </p>
             <p className="font-heading text-2xl text-[#2f3a47] italic mb-4">€{p.price}</p>
-            <a
-              href={SUMUP_SHOP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-[#f7f7f5] text-sm uppercase tracking-[0.2em] text-[#6b7a8d] hover:bg-[#111111] hover:text-white font-semibold transition-all duration-200"
-            >
-              <ArrowRight size={13} />
-              Shop now
-            </a>
+            {/* TODO: restore Shop Now button when next wave opens — replace with: <a href={SUMUP_SHOP_URL} ...>Shop now</a> */}
+            <p className="w-full text-center px-4 py-2.5 text-xs uppercase tracking-[0.2em] font-semibold text-[#a0aab4]">
+              Next wave · Pre-order coming soon
+            </p>
           </div>
         </div>
       ))}

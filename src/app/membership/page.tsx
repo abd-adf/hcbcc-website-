@@ -1,5 +1,13 @@
+import type { Metadata } from "next";
 import { Check } from "lucide-react";
 import CheckoutButton from "@/components/CheckoutButton";
+
+export const metadata: Metadata = {
+  title: "Membership",
+  description:
+    "Join Hors Catégorie Brussels. Get your FCWB licence, access all weekly rides, and become part of one of Brussels' most international cycling communities.",
+  alternates: { canonical: "https://horscategoriebrussels.cc/membership" },
+};
 
 const plans = [
   {

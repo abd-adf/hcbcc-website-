@@ -18,10 +18,49 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Hors Catégorie Brussels Cycling Club",
+  title: {
+    default: "Hors Catégorie Brussels | Cycling Club",
+    template: "%s | Hors Catégorie Brussels",
+  },
   description:
-    "A premium cycling club based in Brussels. Community rides, quality kits, and FCWB membership.",
-  keywords: ["cycling", "Brussels", "HCBCC", "vélo", "Bruxelles", "club cycliste"],
+    "Hors Catégorie is a Brussels cycling club for fast rides, fake races, real parties and a strong international community. Rides every Tuesday and Sunday from Drohme Park.",
+  keywords: [
+    "cycling club Brussels",
+    "club cycliste Bruxelles",
+    "club de vélo Bruxelles",
+    "Hors Catégorie Brussels",
+    "HC Brussels",
+    "vélo Bruxelles",
+    "cycling community Brussels",
+    "groupe vélo Bruxelles",
+    "peloton Bruxelles",
+    "cycling club Belgium",
+  ],
+  metadataBase: new URL("https://horscategoriebrussels.cc"),
+  openGraph: {
+    type: "website",
+    locale: "en_BE",
+    url: "https://horscategoriebrussels.cc",
+    siteName: "Hors Catégorie Brussels",
+    title: "Hors Catégorie Brussels | Cycling Club",
+    description:
+      "A Brussels cycling club for fast rides, fake races, real parties and a strong international community.",
+    images: [
+      {
+        url: "/images/horscategorie-brussels-peloton-coffee-ride.webp",
+        width: 1200,
+        height: 630,
+        alt: "Hors Catégorie Brussels cycling club peloton",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hors Catégorie Brussels | Cycling Club",
+    description:
+      "A Brussels cycling club for fast rides, fake races, real parties and a strong international community.",
+    images: ["/images/horscategorie-brussels-peloton-coffee-ride.webp"],
+  },
   icons: {
     icon: "/images/favicon.png",
   },
@@ -37,6 +76,38 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col bg-[#f7f7f5] text-[#2f3a47]">
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "SportsClub",
+                name: "Hors Catégorie Brussels",
+                alternateName: "HC Brussels",
+                url: "https://horscategoriebrussels.cc",
+                logo: "https://horscategoriebrussels.cc/images/logo_hc.png",
+                description:
+                  "Cycling club based in Brussels. Fast rides, fake races, real parties and a strong international community. Rides every Tuesday and Sunday from Drohme Park.",
+                address: {
+                  "@type": "PostalAddress",
+                  streetAddress: "Chaussée de la Hulpe 53",
+                  addressLocality: "Uccle",
+                  postalCode: "1180",
+                  addressCountry: "BE",
+                },
+                geo: {
+                  "@type": "GeoCoordinates",
+                  latitude: 50.7957,
+                  longitude: 4.3926,
+                },
+                sport: "Cycling",
+                sameAs: [
+                  "https://www.instagram.com/horscategoriebrussels",
+                  "https://www.strava.com/clubs/horscategoriebrussels",
+                ],
+              }),
+            }}
+          />
           <Navbar />
           <main className="flex-1 pt-16">{children}</main>
           <Footer />

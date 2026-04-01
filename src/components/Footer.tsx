@@ -32,7 +32,10 @@ export default function Footer() {
 
           {/* Brand */}
           <div>
-            <p className="font-heading text-2xl tracking-[0.08em] text-white italic leading-none mb-1">HORS CATÉGORIE</p>
+            <p className="font-heading text-2xl tracking-[0.08em] text-white italic leading-[0.85] mb-1">
+              <span className="block" style={{ marginLeft: "4.15ch" }}>H<span style={{ color: "transparent" }}>O</span>RS</span>
+              <span className="block">CATÉG<span style={{ color: "transparent" }}>O</span>RIE</span>
+            </p>
             <p className="text-sm text-white/30 uppercase tracking-[0.4em] mb-6">Brussels Cycling Club</p>
             <div className="flex items-start gap-3 text-white/40 text-sm">
               <MapPin size={14} className="mt-0.5 shrink-0 text-white/40" />
@@ -49,6 +52,7 @@ export default function Footer() {
             <ul className="flex flex-col gap-3">
               {[
                 { href: "/", label: "Home" },
+                { href: "/membership", label: "Membership" },
                 { href: "/licence", label: "Your Licence" },
                 { href: "/ride-etiquette", label: "Ride Etiquette" },
               ].map((l) => (

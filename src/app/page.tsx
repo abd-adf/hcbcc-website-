@@ -1,20 +1,28 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, MapPin, ChevronRight } from "lucide-react";
 import FeaturedProducts from "@/components/FeaturedProducts";
 import EventsSection from "@/components/EventsSection";
 
+export const metadata: Metadata = {
+  title: "Hors Catégorie Brussels | Cycling Club",
+  description:
+    "Hors Catégorie is a Brussels cycling club for fast rides, fake races, real parties and a strong international community. Every Tuesday and Sunday from Drohme Park.",
+  alternates: { canonical: "https://horscategoriebrussels.cc" },
+};
+
 const IMG = {
-  hero:      "/images/cc6bc3e4-97b7-452e-99d7-8dff2e04bd65.jpeg",
-  clubhouse: "/images/0ac1429c-01e0-4e10-9fbf-914d157ad04b.jpeg",
+  hero:      "/images/horscategorie-brussels-peloton-coffee-ride.webp",
+  clubhouse: "/images/horscategorie-brussels-clubhouse-drohme.webp",
   gallery: [
-    "/images/5feb8e55-8d91-4d76-acac-223322e13c0d.jpeg",
-    "/images/850ea70f-d450-4f8b-8b32-4aeb2f4679d0.jpeg",
-    "/images/9e89e5da-4a97-4277-9b8b-08edc90a3af9.jpeg",
-    "/images/39190aa2-cd2c-4985-add5-dc128995534a.jpeg",
-    "/images/bc91f7b2-aa83-403d-9efb-fa930c1999a8.jpeg",
-    "/images/136da972-125f-43ef-bf6d-0cd32f7f2e2a.jpeg",
-    "/images/d3fde412-0178-447a-8184-b2e4d80f736f.jpeg",
+    "/images/horscategorie-brussels-cycling-club-1.webp",
+    "/images/horscategorie-brussels-cycling-club-2.webp",
+    "/images/horscategorie-brussels-cycling-club-3.webp",
+    "/images/horscategorie-brussels-cycling-club-4.webp",
+    "/images/horscategorie-brussels-cycling-club-5.webp",
+    "/images/horscategorie-brussels-cycling-club-6.webp",
+    "/images/horscategorie-brussels-cycling-club-7.webp",
   ],
 };
 
@@ -27,7 +35,7 @@ const allRides = [
     subtitle: "HIT Training",
     distance: "50 km",
     pace: "32–37 km/h",
-    description: "Punchy rides, fast peloton. A proper 50 km HIT session through Wavre. Drop your excuses at the door.",
+    description: "Punchy climbs where anything can happen, tempo peloton transitions through a great scenery. Hard effort, but no drop!",
     tag: null as string | null,
   },
   {
@@ -38,7 +46,7 @@ const allRides = [
     subtitle: "HIT Training",
     distance: "50 km",
     pace: "29–32 km/h",
-    description: "Punchy climbs and fast transitions through Huldenberg. Hard effort, great scenery, no room for passengers.",
+    description: "Punchy climbs where anything can happen, tempo peloton transitions through a great scenery. Hard effort, but no drop!",
     tag: null as string | null,
   },
   {
@@ -56,7 +64,7 @@ const allRides = [
     id: "chill",
     day: "Tuesday",
     time: "6:30 PM",
-    name: "Tour du Chill",
+    name: "Tour de Chill",
     subtitle: "Social Ride",
     distance: "50 km",
     pace: "26–28 km/h",
@@ -68,10 +76,10 @@ const allRides = [
     day: "Tuesday",
     time: "6:30 PM",
     name: "Tour de Rosières",
-    subtitle: "Women's Ride",
+    subtitle: "WTNB Ride",
     distance: "~45 km",
     pace: "28–30 km/h",
-    description: "Bi-weekly women-focused ride. Punchy climbs, fast transitions, strong community. Open to all levels who love to push.",
+    description: "Open to all women, trans and non binary riders! Punchy climbs, fast transitions, strong community.",
     tag: null as string | null,
   },
   {
@@ -96,6 +104,17 @@ const allRides = [
     description: "Not every week — check Strava. Fast, intense, almost race mode. Z3-Z4 and above. Try not to get dropped.",
     tag: "Occasional",
   },
+  {
+    id: "anyday",
+    day: "Any day",
+    time: "Check Strava",
+    name: "Special Rides",
+    subtitle: "Special Rides",
+    distance: "Varies",
+    pace: "Varies",
+    description: "Occasional Special rides, taking you to a Spring Classic, on a longer ride to the Ardennes, or on a pop-up improvised afterwork ride.",
+    tag: "Occasional",
+  },
 ];
 
 
@@ -110,13 +129,13 @@ export default function HomePage() {
       >
         <Image
           src={IMG.hero}
-          alt="HCBCC group ride through Brussels"
+          alt="Hors Catégorie Brussels cycling club group ride"
           fill
           priority
           sizes="100vw"
           className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
         {/* Grain texture for depth */}
         <div
           className="absolute inset-0 pointer-events-none"
@@ -131,14 +150,14 @@ export default function HomePage() {
             <span className="w-1.5 h-1.5 rounded-full bg-black animate-pulse" />
             <span className="text-black text-sm uppercase tracking-[0.45em] font-bold">Brussels Cycling Club</span>
           </div>
-          <h1 className="font-heading text-[clamp(5rem,18vw,14rem)] leading-[0.85] text-white mb-6 overflow-hidden">
-            <span className="block overflow-hidden" style={{ marginLeft: "4.15ch" }}><span className="word-reveal" style={{ animationDelay: "0ms" }}>H<span style={{ color: "transparent" }}>O</span>RS</span></span>
-            <span className="block overflow-hidden"><span className="word-reveal" style={{ animationDelay: "80ms" }}>CATÉG<span style={{ color: "transparent" }}>O</span>RIE</span></span>
+          <h1 className="font-heading text-[clamp(5rem,18vw,14rem)] leading-[0.85] text-white/80 mb-6 overflow-hidden">
+            <span className="sr-only">Hors Catégorie — Brussels Cycling Club</span>
+            <span aria-hidden="true" className="block overflow-hidden" style={{ marginLeft: "4.15ch" }}><span className="word-reveal" style={{ animationDelay: "0ms" }}>H<span style={{ color: "transparent" }}>O</span>RS</span></span>
+            <span aria-hidden="true" className="block overflow-hidden"><span className="word-reveal" style={{ animationDelay: "80ms" }}>CATÉG<span style={{ color: "transparent" }}>O</span>RIE</span></span>
           </h1>
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
             <p className="text-white/85 text-base sm:text-lg max-w-sm leading-relaxed">
-              A premium cycling club built on speed, community, and the relentless
-              pursuit of excellence — on and off the bike.
+              A First Class cycling club for fast rides, fake races, real party and strong community!
             </p>
             <div className="flex flex-col sm:flex-row gap-3 shrink-0">
               <Link
@@ -148,10 +167,10 @@ export default function HomePage() {
                 Become a Member <ArrowRight size={13} />
               </Link>
               <a
-                href="#collection"
+                href="#rides"
                 className="inline-flex items-center justify-center px-7 py-3.5 border border-white/30 text-white/80 font-semibold uppercase tracking-[0.2em] text-sm hover:border-white/70 hover:text-white transition-colors"
               >
-                Explore the Kit
+                Ride Schedule
               </a>
             </div>
           </div>
@@ -159,7 +178,7 @@ export default function HomePage() {
       </section>
 
       {/* ── RIDES ────────────────────────────────────────────── */}
-      <section className="pt-48 pb-32 bg-[#f7f7f5]">
+      <section id="rides" className="pt-48 pb-32 bg-[#f7f7f5]">
         <div className="max-w-screen-2xl mx-auto px-6 sm:px-8 lg:px-12">
 
           {/* Section header */}
@@ -168,7 +187,7 @@ export default function HomePage() {
               <p className="text-[#111111] text-sm uppercase tracking-[0.5em] mb-3">Weekly Schedule</p>
               <h2 className="font-heading text-5xl sm:text-7xl text-[#2f3a47]">JOIN US FOR A RIDE</h2>
               <p className="text-[#6b7a8d] mt-3 text-base max-w-sm leading-relaxed">
-                Two days, multiple rides. HC is built for confirmed and experienced riders — beginners are welcome on the Tour du Chill only. Curious? Come for a test ride, but check the Strava descriptions first to make sure the pace matches yours.
+                Two days, multiple rides. HC is built for confirmed and experienced riders — beginners are welcome on the Tour de Chill only. Curious? Come for a test ride, but check the Strava descriptions first to make sure the pace matches yours.
               </p>
             </div>
             <div className="shrink-0 flex flex-col gap-3">
@@ -201,9 +220,9 @@ export default function HomePage() {
 
           {/* Ride rows — programme table */}
           <div>
-            {["Tuesday", "Sunday"].map((day) => {
+            {["Tuesday", "Sunday", "Any day"].map((day) => {
               const rides = allRides.filter((r) => r.day === day);
-              const dayTime = day === "Tuesday" ? "6:30 PM · Every week" : "9:00 AM · Weekly + Occasional Espresso";
+              const dayTime = day === "Tuesday" ? "6:30 PM · Every week" : day === "Sunday" ? "9:00 AM · Weekly + Occasional Espresso" : "Check Strava";
               return (
                 <div key={day} className="mb-2">
                   {/* Day label */}
@@ -270,7 +289,7 @@ export default function HomePage() {
             <div className="relative aspect-[4/5] md:aspect-auto md:min-h-[560px] overflow-hidden">
               <Image
                 src={IMG.clubhouse}
-                alt="Brussels Cyclists Meeting Point"
+                alt="Hors Catégorie Brussels clubhouse at Drohme Park"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover object-center"
@@ -286,9 +305,7 @@ export default function HomePage() {
                   THE<br />CLUBHOUSE
                 </h2>
                 <p className="text-[#6b7a8d] text-base leading-relaxed max-w-sm">
-                  All rides depart and return here. Come early, grab a coffee,
-                  chat with the crew. More than a meeting point,
-                  it&apos;s where the club lives.
+                  All rides depart and return here. Come early, drop a bag, grab a coffee, chat with the crew. This is where the club lives.
                 </p>
                 <p className="text-[#6b7a8d] text-base leading-relaxed max-w-sm mt-4">
                   French, English, Dutch, Portuguese, Turkish, Italian, Greek — HC is as international as Brussels itself. Wherever you&apos;re from, you&apos;ll find your people here.
@@ -339,14 +356,14 @@ export default function HomePage() {
         {/* Row 1 — large mosaic: 1 wide + 2 stacked */}
         <div className="grid grid-cols-[3fr_2fr] h-[56vw] max-h-[680px] gap-[2px]">
           <div className="relative overflow-hidden group/g">
-            <Image src={IMG.gallery[0]} alt="HCBCC community" fill sizes="60vw" className="object-cover transition-transform duration-500 ease-out group-hover/g:scale-[1.03] group-hover/g:-rotate-1" />
+            <Image src={IMG.gallery[0]} alt="Hors Catégorie Brussels cycling club group ride" fill sizes="60vw" className="object-cover transition-transform duration-500 ease-out group-hover/g:scale-[1.03] group-hover/g:-rotate-1" />
           </div>
           <div className="grid grid-rows-2 gap-[2px]">
             <div className="relative overflow-hidden group/g">
-              <Image src={IMG.gallery[1]} alt="HCBCC community" fill sizes="40vw" className="object-cover transition-transform duration-500 ease-out group-hover/g:scale-[1.03] group-hover/g:rotate-1" />
+              <Image src={IMG.gallery[1]} alt="HC Brussels cycling club community" fill sizes="40vw" className="object-cover transition-transform duration-500 ease-out group-hover/g:scale-[1.03] group-hover/g:rotate-1" />
             </div>
             <div className="relative overflow-hidden group/g">
-              <Image src={IMG.gallery[2]} alt="HCBCC community" fill sizes="40vw" className="object-cover transition-transform duration-500 ease-out group-hover/g:scale-[1.03] group-hover/g:-rotate-1" />
+              <Image src={IMG.gallery[2]} alt="Hors Catégorie Brussels peloton ride" fill sizes="40vw" className="object-cover transition-transform duration-500 ease-out group-hover/g:scale-[1.03] group-hover/g:-rotate-1" />
             </div>
           </div>
         </div>
@@ -357,7 +374,7 @@ export default function HomePage() {
             <div key={src} className="relative overflow-hidden group/g">
               <Image
                 src={src}
-                alt={`HCBCC community ${i + 4}`}
+                alt={`HC Brussels cycling club - Hors Catégorie community ${i + 4}`}
                 fill
                 sizes="25vw"
                 className={`object-cover transition-transform duration-500 ease-out group-hover/g:scale-[1.03] ${i % 2 === 0 ? "group-hover/g:-rotate-1" : "group-hover/g:rotate-1"}`}
@@ -453,12 +470,14 @@ export default function HomePage() {
                 >
                   View Memberships <ArrowRight size={13} />
                 </Link>
-                <Link
-                  href="/shop"
+                <a
+                  href="https://horscategoriebrussels.cc/page/jerseys"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center justify-center px-7 py-3.5 border border-white/15 text-white/50 font-semibold uppercase tracking-[0.2em] text-sm hover:border-white/40 hover:text-white/80 transition-colors"
                 >
                   Shop the Kit
-                </Link>
+                </a>
               </div>
             </div>
           </div>

@@ -1,6 +1,5 @@
 import { ArrowRight } from "lucide-react";
-
-const SUMUP_SHOP_URL = "https://horscategoriebrussels.cc/page/jerseys";
+import { SHOP_URL } from "@/lib/site";
 
 export default function ShopPage() {
   return (
@@ -28,7 +27,7 @@ export default function ShopPage() {
             </p>
           </div>
           <a
-            href={SUMUP_SHOP_URL}
+            href={SHOP_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="shrink-0 inline-flex items-center gap-2.5 px-8 py-4 bg-[#111111] text-white font-semibold uppercase tracking-[0.2em] text-sm hover:bg-[#000000] transition-colors"

@@ -23,19 +23,7 @@ export const metadata: Metadata = {
     template: "%s | Hors Catégorie Brussels",
   },
   description:
-    "Hors Catégorie is a Brussels cycling club for fast rides, fake races, real parties and a strong international community. Rides every Tuesday and Sunday from Drohme Park.",
-  keywords: [
-    "cycling club Brussels",
-    "club cycliste Bruxelles",
-    "club de vélo Bruxelles",
-    "Hors Catégorie Brussels",
-    "HC Brussels",
-    "vélo Bruxelles",
-    "cycling community Brussels",
-    "groupe vélo Bruxelles",
-    "peloton Bruxelles",
-    "cycling club Belgium",
-  ],
+    "Brussels cycling club for fast rides, fake races, real parties and a strong international community. Rides every Tuesday and Sunday from Drohme Park.",
   metadataBase: new URL("https://horscategoriebrussels.cc"),
   openGraph: {
     type: "website",
@@ -44,7 +32,7 @@ export const metadata: Metadata = {
     siteName: "Hors Catégorie Brussels",
     title: "Hors Catégorie Brussels | Cycling Club",
     description:
-      "A Brussels cycling club for fast rides, fake races, real parties and a strong international community.",
+      "Brussels cycling club for fast rides, fake races, real parties and a strong international community. Rides every Tuesday and Sunday from Drohme Park.",
     images: [
       {
         url: "/images/horscategorie-brussels-peloton-coffee-ride.webp",
@@ -58,7 +46,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Hors Catégorie Brussels | Cycling Club",
     description:
-      "A Brussels cycling club for fast rides, fake races, real parties and a strong international community.",
+      "Brussels cycling club for fast rides, fake races, real parties and a strong international community. Rides every Tuesday and Sunday from Drohme Park.",
     images: ["/images/horscategorie-brussels-peloton-coffee-ride.webp"],
   },
   icons: {
@@ -101,6 +89,11 @@ export default function RootLayout({
                   longitude: 4.3926,
                 },
                 sport: "Cycling",
+                areaServed: {
+                  "@type": "City",
+                  name: "Brussels",
+                  sameAs: "https://www.wikidata.org/wiki/Q239",
+                },
                 sameAs: [
                   "https://www.instagram.com/horscategoriebrussels",
                   "https://www.strava.com/clubs/horscategoriebrussels",

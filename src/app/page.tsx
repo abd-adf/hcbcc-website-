@@ -4,11 +4,12 @@ import Link from "next/link";
 import { ArrowRight, MapPin, ChevronRight } from "lucide-react";
 import FeaturedProducts from "@/components/FeaturedProducts";
 import EventsSection from "@/components/EventsSection";
+import { SHOP_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Hors Catégorie Brussels | Cycling Club",
   description:
-    "Hors Catégorie is a Brussels cycling club for fast rides, fake races, real parties and a strong international community. Every Tuesday and Sunday from Drohme Park.",
+    "Brussels cycling club for fast rides, fake races, real parties and a strong international community. Rides every Tuesday and Sunday from Drohme Park.",
   alternates: { canonical: "https://horscategoriebrussels.cc" },
 };
 
@@ -227,7 +228,7 @@ export default function HomePage() {
                 <div key={day} className="mb-2">
                   {/* Day label */}
                   <div className="flex items-baseline gap-4 py-4 border-t-2 border-[#111111]">
-                    <span className="font-heading text-4xl sm:text-5xl text-[#111111]">{day.toUpperCase()}</span>
+                    <h3 className="font-heading text-4xl sm:text-5xl text-[#111111]">{day.toUpperCase()}</h3>
                     <span className="text-xs uppercase tracking-[0.4em] text-[#a0aab4] font-semibold">{dayTime}</span>
                   </div>
 
@@ -471,7 +472,7 @@ export default function HomePage() {
                   View Memberships <ArrowRight size={13} />
                 </Link>
                 <a
-                  href="https://horscategoriebrussels.cc/page/jerseys"
+                  href={SHOP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center px-7 py-3.5 border border-white/15 text-white/50 font-semibold uppercase tracking-[0.2em] text-sm hover:border-white/40 hover:text-white/80 transition-colors"

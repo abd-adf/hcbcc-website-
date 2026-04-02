@@ -1,6 +1,23 @@
 import type { NextConfig } from "next";
 
+const shopUrl =
+  process.env.NEXT_PUBLIC_SHOP_URL ?? "https://shop.horscategoriebrussels.cc";
+
 const nextConfig: NextConfig = {
+  async redirects() {
+    return [
+      {
+        source: "/page/jerseys",
+        destination: shopUrl,
+        permanent: true,
+      },
+      {
+        source: "/page/jerseys/",
+        destination: shopUrl,
+        permanent: true,
+      },
+    ];
+  },
   images: {
     remotePatterns: [
       {

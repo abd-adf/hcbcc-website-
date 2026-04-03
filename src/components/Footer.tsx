@@ -55,6 +55,7 @@ export default function Footer() {
                 { href: "/membership", label: "Membership" },
                 { href: "/licence", label: "Your Licence" },
                 { href: "/ride-etiquette", label: "Ride Etiquette" },
+                { href: "/faq", label: "FAQ" },
               ].map((l) => (
                 <li key={l.href}>
                   <Link

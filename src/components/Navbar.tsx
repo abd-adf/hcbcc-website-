@@ -29,6 +29,7 @@ const links = [
   { href: "/#collection", label: "Kits & Jerseys" },
   { href: "/licence", label: "Your Licence" },
   { href: "/ride-etiquette", label: "Ride Etiquette" },
+  { href: "/faq", label: "FAQ" },
 ];
 
 export default function Navbar() {

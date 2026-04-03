@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: "%s | Hors Catégorie Brussels",
   },
   description:
-    "Brussels cycling club for fast rides, fake races, real parties and a strong international community. Rides every Tuesday and Sunday from Drohme Park.",
+    "Hors Catégorie Brussels also known as HC is a cycling club based in Bruxelles. We do road and gravel. Join +180 members today, ride fast and have fun with us.",
   metadataBase: new URL("https://horscategoriebrussels.cc"),
   openGraph: {
     type: "website",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     siteName: "Hors Catégorie Brussels",
     title: "Hors Catégorie Brussels | Cycling Club",
     description:
-      "Brussels cycling club for fast rides, fake races, real parties and a strong international community. Rides every Tuesday and Sunday from Drohme Park.",
+      "Hors Catégorie Brussels also known as HC is a cycling club based in Bruxelles. We do road and gravel. Join +180 members today, ride fast and have fun with us.",
     images: [
       {
         url: "/images/horscategorie-brussels-peloton-coffee-ride.webp",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Hors Catégorie Brussels | Cycling Club",
     description:
-      "Brussels cycling club for fast rides, fake races, real parties and a strong international community. Rides every Tuesday and Sunday from Drohme Park.",
+      "Hors Catégorie Brussels also known as HC is a cycling club based in Bruxelles. We do road and gravel. Join +180 members today, ride fast and have fun with us.",
     images: ["/images/horscategorie-brussels-peloton-coffee-ride.webp"],
   },
   icons: {
@@ -97,6 +97,82 @@ export default function RootLayout({
                 sameAs: [
                   "https://www.instagram.com/horscategoriebrussels",
                   "https://www.strava.com/clubs/horscategoriebrussels",
+                ],
+              }),
+            }}
+          />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "ItemList",
+                name: "HC Brussels Weekly Rides",
+                itemListElement: [
+                  {
+                    "@type": "EventSeries",
+                    name: "Tuesday Group Rides — HC Brussels",
+                    description: "Weekly Tuesday rides from Drohme Park, Uccle. Four options ranging from HIT training (32–37 km/h) to a no-drop social ride (26–28 km/h) and a gravel ride through Forêt de Soignes.",
+                    url: "https://horscategoriebrussels.cc/#rides",
+                    organizer: {
+                      "@type": "SportsClub",
+                      name: "Hors Catégorie Brussels",
+                      url: "https://horscategoriebrussels.cc",
+                    },
+                    location: {
+                      "@type": "Place",
+                      name: "Drohme Park — HC Clubhouse",
+                      address: {
+                        "@type": "PostalAddress",
+                        streetAddress: "Chaussée de la Hulpe 53",
+                        addressLocality: "Uccle",
+                        postalCode: "1180",
+                        addressCountry: "BE",
+                      },
+                    },
+                    eventSchedule: {
+                      "@type": "Schedule",
+                      byDay: "https://schema.org/Tuesday",
+                      startTime: "18:30",
+                      repeatFrequency: "P1W",
+                    },
+                    eventStatus: "https://schema.org/EventScheduled",
+                    eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+                    isAccessibleForFree: false,
+                    sport: "Cycling",
+                  },
+                  {
+                    "@type": "EventSeries",
+                    name: "Sunday Coffee Ride — HC Brussels",
+                    description: "Weekly Sunday no-drop coffee ride from Drohme Park, Uccle. Zone 2–3 pace, all levels welcome.",
+                    url: "https://horscategoriebrussels.cc/#rides",
+                    organizer: {
+                      "@type": "SportsClub",
+                      name: "Hors Catégorie Brussels",
+                      url: "https://horscategoriebrussels.cc",
+                    },
+                    location: {
+                      "@type": "Place",
+                      name: "Drohme Park — HC Clubhouse",
+                      address: {
+                        "@type": "PostalAddress",
+                        streetAddress: "Chaussée de la Hulpe 53",
+                        addressLocality: "Uccle",
+                        postalCode: "1180",
+                        addressCountry: "BE",
+                      },
+                    },
+                    eventSchedule: {
+                      "@type": "Schedule",
+                      byDay: "https://schema.org/Sunday",
+                      startTime: "09:00",
+                      repeatFrequency: "P1W",
+                    },
+                    eventStatus: "https://schema.org/EventScheduled",
+                    eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+                    isAccessibleForFree: false,
+                    sport: "Cycling",
+                  },
                 ],
               }),
             }}

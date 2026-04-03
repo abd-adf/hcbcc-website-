@@ -3,6 +3,7 @@ import { ArrowRight, Package } from "lucide-react";
 
 export const metadata = {
   title: "Order confirmed — Hors Catégorie Brussels Cycling Club",
+  robots: { index: false, follow: false },
 };
 
 export default function MerciKitPage() {

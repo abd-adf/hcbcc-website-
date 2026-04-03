@@ -9,7 +9,7 @@ import { SHOP_URL } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Hors Catégorie Brussels | Cycling Club",
   description:
-    "Brussels cycling club for fast rides, fake races, real parties and a strong international community. Rides every Tuesday and Sunday from Drohme Park.",
+    "Hors Catégorie Brussels also known as HC is a cycling club based in Bruxelles. We do road and gravel. Join +180 members today, ride fast and have fun with us.",
   alternates: { canonical: "https://horscategoriebrussels.cc" },
 };
 

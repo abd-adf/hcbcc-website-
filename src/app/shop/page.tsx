@@ -1,5 +1,11 @@
 import { ArrowRight } from "lucide-react";
 import { SHOP_URL } from "@/lib/site";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Shop — Hors Catégorie Brussels Cycling Club",
+  robots: { index: false, follow: false },
+};
 
 export default function ShopPage() {
   return (

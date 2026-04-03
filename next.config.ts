@@ -6,16 +6,18 @@ const shopUrl =
 const nextConfig: NextConfig = {
   async redirects() {
     return [
-      {
-        source: "/page/jerseys",
-        destination: shopUrl,
-        permanent: true,
-      },
-      {
-        source: "/page/jerseys/",
-        destination: shopUrl,
-        permanent: true,
-      },
+      // Legacy shop pages → shop subdomain
+      { source: "/page/jerseys",        destination: shopUrl,                    permanent: true },
+      { source: "/page/jerseys/",       destination: shopUrl,                    permanent: true },
+      { source: "/products",            destination: `${shopUrl}/products`,      permanent: true },
+      { source: "/products/:path*",     destination: `${shopUrl}/products/:path*`, permanent: true },
+      { source: "/product/:slug",       destination: `${shopUrl}/product/:slug`, permanent: true },
+      { source: "/category/:slug",      destination: `${shopUrl}/category/:slug`, permanent: true },
+      { source: "/index.php/product/:slug", destination: `${shopUrl}/product/:slug`, permanent: true },
+
+      // Legacy institutional pages → new site
+      { source: "/page/licence",           destination: "/licence",       permanent: true },
+      { source: "/page/hc-ride-etiquette", destination: "/ride-etiquette", permanent: true },
     ];
   },
   images: {

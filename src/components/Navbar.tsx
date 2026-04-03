@@ -58,10 +58,11 @@ export default function Navbar() {
 
         {/* Logo */}
         <Link href="/" className="shrink-0">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/images/logo_hc.png"
+            src="/images/logo_hc.webp"
             alt="Hors Catégorie Brussels Cycling Club"
+            width={215}
+            height={140}
             className="h-20 w-auto object-contain"
           />
         </Link>

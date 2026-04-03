@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight, MapPin, ChevronRight } from "lucide-react";
 import FeaturedProducts from "@/components/FeaturedProducts";
 import EventsSection from "@/components/EventsSection";
+import LazyMap from "@/components/LazyMap";
 import { SHOP_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -327,16 +328,7 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <div className="mt-8 border border-[#e8e8e5] h-[200px]">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2521.911479807676!2d4.392627876267712!3d50.795749062442084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3c54b22635da1%3A0xf3f5d9ce1fa5dd4c!2sHors%20Cat%C3%A9gorie%20Brussels%20Cycling%20Club!5e0!3m2!1sfr!2sbe!4v1774273069657!5m2!1sfr!2sbe"
-                    style={{ border: 0, display: "block", width: "100%", height: "100%" }}
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title="HCBCC Clubhouse location"
-                  />
-                </div>
+                <LazyMap />
 
                 <Link
                   href="/membership"

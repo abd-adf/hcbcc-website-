@@ -293,13 +293,17 @@ export default function HomePage() {
 
             {/* Photo — no radius, full bleed */}
             <div className="relative aspect-[4/5] md:aspect-auto md:min-h-[560px] overflow-hidden">
-              <Image
-                src={IMG.clubhouse}
-                alt="Hors Catégorie Brussels clubhouse at Drohme Park"
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover object-center"
-              />
+              <picture style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }}>
+                <source media="(max-width: 768px)" srcSet="/images/horscategorie-brussels-clubhouse-drohme-mobile.webp" />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/horscategorie-brussels-clubhouse-drohme.webp"
+                  alt="Hors Catégorie Brussels clubhouse at Drohme Park"
+                  loading="lazy"
+                  decoding="async"
+                  style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
+                />
+              </picture>
             </div>
 
             {/* Text — adjacent panel, no gap */}

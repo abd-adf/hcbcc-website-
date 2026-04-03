@@ -129,14 +129,18 @@ export default function HomePage() {
         className="relative min-h-[calc(100vh-4rem)] flex items-end overflow-hidden"
         style={{ clipPath: "polygon(0 0, 100% 0, 100% 93%, 0 100%)", marginBottom: "-4rem" }}
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={IMG.hero}
-          alt="Hors Catégorie Brussels cycling club group ride"
-          fetchPriority="high"
-          decoding="async"
-          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
-        />
+        <picture style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }}>
+          <source media="(max-width: 768px)" srcSet="/images/horscategorie-brussels-peloton-coffee-ride-mobile.webp" />
+          <source media="(min-width: 769px)" srcSet="/images/horscategorie-brussels-peloton-coffee-ride-hd.webp" />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/horscategorie-brussels-peloton-coffee-ride-hd.webp"
+            alt="Hors Catégorie Brussels cycling club group ride"
+            fetchPriority="high"
+            decoding="async"
+            style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
+          />
+        </picture>
         <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
         {/* Grain texture for depth */}
         <div

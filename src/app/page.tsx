@@ -129,13 +129,13 @@ export default function HomePage() {
         className="relative min-h-[calc(100vh-4rem)] flex items-end overflow-hidden"
         style={{ clipPath: "polygon(0 0, 100% 0, 100% 93%, 0 100%)", marginBottom: "-4rem" }}
       >
-        <Image
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
           src={IMG.hero}
           alt="Hors Catégorie Brussels cycling club group ride"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center"
+          fetchPriority="high"
+          decoding="async"
+          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
         {/* Grain texture for depth */}

@@ -60,9 +60,10 @@ export default function Navbar() {
         <Link href="/" className="shrink-0">
           <img
             src="/images/logo_hc.webp"
+            srcSet="/images/logo_hc@1x.webp 1x, /images/logo_hc.webp 2x"
             alt="Hors Catégorie Brussels Cycling Club"
-            width={215}
-            height={140}
+            width={123}
+            height={80}
             className="h-20 w-auto object-contain"
           />
         </Link>

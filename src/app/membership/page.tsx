@@ -15,7 +15,7 @@ const plans = [
     name: "Monthly Membership",
     price: 5,
     period: "month",
-    priceId: "price_1TDkIeGXu3buwWTAp7yAlEWH",
+    priceId: "price_1THqDtK49HEAljERGQuMt1x4",
     description: "Join HC and pay monthly",
     highlight: false,
     features: [
@@ -31,7 +31,7 @@ const plans = [
     name: "Yearly Membership",
     price: 50,
     period: "year",
-    priceId: "price_1TDohFGXu3buwWTAqR96U4PC",
+    priceId: "price_1THqDtK49HEAljERNFrsHZ9G",
     description: "Join HC and pay annually",
     highlight: true,
     features: [

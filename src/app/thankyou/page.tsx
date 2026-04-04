@@ -1,12 +1,42 @@
 import Link from "next/link";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Check, Tag } from "lucide-react";
+import Stripe from "stripe";
 
 export const metadata = {
   title: "Welcome to HC — Hors Catégorie Brussels Cycling Club",
   robots: { index: false, follow: false },
 };
 
-export default function MerciPage() {
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+  apiVersion: "2026-02-25.clover",
+});
+
+const COUPON_MAP: Record<string, { code: string; discount: string }> = {
+  price_1THqDtK49HEAljERGQuMt1x4: { code: "HCMEMBER10", discount: "10%" },
+  price_1THqDtK49HEAljERNFrsHZ9G: { code: "HCMEMBER15", discount: "15%" },
+};
+
+async function getCoupon(sessionId: string | undefined) {
+  if (!sessionId) return null;
+  try {
+    const session = await stripe.checkout.sessions.retrieve(sessionId, {
+      expand: ["line_items"],
+    });
+    const priceId = session.line_items?.data[0]?.price?.id;
+    return priceId ? COUPON_MAP[priceId] ?? null : null;
+  } catch {
+    return null;
+  }
+}
+
+export default async function MerciPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ session_id?: string }>;
+}) {
+  const { session_id } = await searchParams;
+  const coupon = await getCoupon(session_id);
+
   return (
     <div className="min-h-screen bg-[#f7f7f5] flex items-center justify-center px-6 py-24">
       <div className="max-w-lg w-full text-center">
@@ -27,6 +57,30 @@ export default function MerciPage() {
           You&apos;re officially part of Hors Catégorie Brussels Cycling Club.
           Check your inbox for a confirmation email. We&apos;ll see you on the road.
         </p>
+
+        {/* Shop coupon */}
+        {coupon && (
+          <div className="bg-white border border-[#e8e8e5] p-6 mb-6 text-left">
+            <div className="flex items-center gap-2 mb-3">
+              <Tag size={14} className="text-[#a0aab4]" />
+              <p className="text-xs uppercase tracking-[0.4em] text-[#a0aab4]">Your member discount</p>
+            </div>
+            <p className="text-[#6b7a8d] text-sm mb-4">
+              Use this code at checkout on the HC shop for {coupon.discount} off your order:
+            </p>
+            <div className="flex items-center justify-between bg-[#f7f7f5] border border-[#e8e8e5] px-5 py-3 mb-4">
+              <span className="font-heading text-2xl text-[#111111] tracking-[0.2em]">{coupon.code}</span>
+            </div>
+            <a
+              href="https://shop.horscategoriebrussels.cc"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm text-[#2f3a47] font-semibold uppercase tracking-[0.15em] hover:text-[#111111] transition-colors"
+            >
+              Go to the shop <ArrowRight size={13} />
+            </a>
+          </div>
+        )}
 
         {/* WhatsApp CTA */}
         <a

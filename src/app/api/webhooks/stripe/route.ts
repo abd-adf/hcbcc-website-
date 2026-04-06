@@ -57,7 +57,7 @@ async function sendConfirmationEmail(
         <tr>
           <td style="background:#111111;padding:24px 32px 0;text-align:center;">
             <p style="margin:0 0 12px 0;font-size:11px;text-transform:uppercase;color:#a0aab4;">Payment confirmed</p>
-            <h1 style="margin:0 0 24px 0;font-size:56px;font-family:'Bebas Neue',Arial,sans-serif;font-weight:400;font-style:italic;color:#ffffff;line-height:1;letter-spacing:0.05em;">WELCOME TO<br>THE HC PELOTON</h1>
+            <h1 style="margin:0 0 24px 0;font-size:56px;font-family:'Bebas Neue',Arial,sans-serif;font-weight:700;font-style:italic;color:#ffffff;line-height:1;">WELCOME TO<br>THE HC PELOTON</h1>
           </td>
         </tr>
 

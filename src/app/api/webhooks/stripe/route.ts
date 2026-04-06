@@ -22,30 +22,49 @@ async function sendConfirmationEmail(
   const couponBlock = coupon
     ? `
     <div style="background:#f7f7f5;border:1px solid #e8e8e5;padding:20px;margin:24px 0;">
-      <p style="margin:0 0 8px 0;font-size:11px;text-transform:uppercase;letter-spacing:0.4em;color:#a0aab4;">Your member discount</p>
+      <p style="margin:0 0 8px 0;font-size:11px;text-transform:uppercase;color:#a0aab4;">Your member discount</p>
       <p style="margin:0 0 12px 0;font-size:14px;color:#6b7a8d;">Use this code at checkout for ${coupon.discount} off your order:</p>
       <div style="background:#ffffff;border:1px solid #e8e8e5;padding:12px 20px;display:inline-block;margin-bottom:12px;">
-        <span style="font-size:22px;font-weight:700;letter-spacing:0.2em;color:#111111;">${coupon.code}</span>
+        <span style="font-size:22px;font-weight:700;color:#111111;">${coupon.code}</span>
       </div>
       <br/>
-      <a href="https://shop.horscategoriebrussels.cc" style="font-size:13px;color:#2f3a47;font-weight:600;text-transform:uppercase;letter-spacing:0.15em;">Go to the shop →</a>
+      <a href="https://shop.horscategoriebrussels.cc" style="font-size:13px;color:#2f3a47;font-weight:600;text-transform:uppercase;">Go to the shop →</a>
     </div>`
     : "";
 
   const htmlContent = `
 <!DOCTYPE html>
 <html>
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;600;700&display=swap');
+  </style>
+</head>
 <body style="margin:0;padding:0;background:#f7f7f5;font-family:'DM Sans',Arial,sans-serif;">
   <table width="100%" cellpadding="0" cellspacing="0" style="background:#f7f7f5;padding:40px 20px;">
     <tr><td align="center">
       <table width="100%" style="max-width:560px;background:#ffffff;border:1px solid #e8e8e5;">
 
+        <!-- Logo -->
+        <tr>
+          <td style="background:#ffffff;padding:24px 32px;text-align:center;">
+            <img src="https://horscategoriebrussels.cc/images/logo_hc.webp" alt="Hors Catégorie Brussels" width="60" style="display:inline-block;">
+          </td>
+        </tr>
+
         <!-- Header -->
         <tr>
-          <td style="background:#111111;padding:32px;text-align:center;">
-            <p style="margin:0 0 16px 0;font-size:11px;text-transform:uppercase;letter-spacing:0.5em;color:#a0aab4;">Payment confirmed</p>
-            <h1 style="margin:0;font-size:48px;font-weight:700;color:#ffffff;line-height:1;letter-spacing:0.05em;">WELCOME TO<br>THE HC PELOTON</h1>
+          <td style="background:#111111;padding:24px 32px 0;text-align:center;">
+            <p style="margin:0 0 12px 0;font-size:11px;text-transform:uppercase;color:#a0aab4;">Payment confirmed</p>
+            <h1 style="margin:0 0 24px 0;font-size:56px;font-family:'Bebas Neue',Arial,sans-serif;font-weight:400;font-style:italic;color:#ffffff;line-height:1;letter-spacing:0.05em;">WELCOME TO<br>THE HC PELOTON</h1>
+          </td>
+        </tr>
+
+        <!-- Hero image -->
+        <tr>
+          <td style="background:#111111;padding:0;line-height:0;">
+            <img src="https://horscategoriebrussels.cc/images/horscategorie-brussels-peloton-coffee-ride.webp" alt="HC Brussels peloton" width="560" style="display:block;width:100%;max-width:560px;">
           </td>
         </tr>
 
@@ -63,20 +82,20 @@ async function sendConfirmationEmail(
 
             <!-- WhatsApp -->
             <a href="https://chat.whatsapp.com/BB0uTITT0vZ9aYH1AZWi7y" style="display:block;background:#25D366;padding:20px 24px;text-decoration:none;margin-bottom:12px;">
-              <span style="font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;color:#ffffff;">Join the HC WhatsApp group →</span>
+              <span style="font-size:14px;font-weight:700;text-transform:uppercase;color:#ffffff;">Join the HC WhatsApp group →</span>
               <br><span style="font-size:13px;color:rgba(255,255,255,0.75);">Rides, news, the crew</span>
             </a>
 
             <!-- Manage subscription -->
             <a href="${billingUrl}" style="display:block;background:#f7f7f5;border:1px solid #e8e8e5;padding:16px 24px;text-decoration:none;margin-bottom:24px;">
-              <span style="font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.15em;color:#2f3a47;">Manage your membership →</span>
+              <span style="font-size:13px;font-weight:600;text-transform:uppercase;color:#2f3a47;">Manage your membership →</span>
               <br><span style="font-size:12px;color:#a0aab4;">Update payment, cancel anytime</span>
             </a>
 
             <hr style="border:none;border-top:1px solid #e8e8e5;margin:24px 0;">
 
             <!-- Next steps -->
-            <p style="margin:0 0 12px 0;font-size:11px;text-transform:uppercase;letter-spacing:0.4em;color:#a0aab4;">Next steps</p>
+            <p style="margin:0 0 12px 0;font-size:11px;text-transform:uppercase;color:#a0aab4;">Next steps</p>
             <ul style="margin:0;padding:0 0 0 16px;color:#6b7a8d;font-size:14px;line-height:2;">
               <li>Follow the club on <a href="https://www.strava.com/clubs/horscategoriebrussels" style="color:#2f3a47;">Strava</a> to get ride notifications</li>
               <li>Check the ride schedule — Tuesdays 18:30 &amp; Sundays 09:00 from Drohme Park</li>

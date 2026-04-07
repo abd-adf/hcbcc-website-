@@ -21,7 +21,6 @@ const plans = [
     features: [
       "HCBCC membership 2026",
       "Access to all club rides",
-      "Strava club access",
       "HC whatsapp community channels",
       "10% discount on the merchandising",
     ],
@@ -37,9 +36,9 @@ const plans = [
     features: [
       "HCBCC membership 2026",
       "Access to all club rides",
-      "Strava club access",
       "HC whatsapp community channels",
       "15% discount on the merchandising",
+      "2 months offered",
     ],
   },
 ];
@@ -102,9 +101,10 @@ export default function MembershipPage() {
           ))}
         </div>
 
-        <div className="mt-10 border-t border-[#e8e8e5] pt-8">
-          <p className="text-sm text-[#a0aab4] leading-relaxed">
-            After subscribing, you'll receive a confirmation email with a link to your billing portal — where you can cancel or manage your membership at any time, in just a few clicks.
+        <div className="mt-10 border border-[#e8e8e5] bg-white p-6 flex gap-4 items-start">
+          <span className="text-xl leading-none mt-0.5">✉️</span>
+          <p className="text-sm text-[#2f3a47] leading-relaxed">
+            After subscribing, you'll receive a confirmation email with a link to your billing portal — where you can <strong>cancel or manage your membership</strong> at any time, in just a few clicks.
           </p>
         </div>
       </div>

@@ -6,6 +6,11 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: "2026-02-25.clover",
 });
 
+const MEMBERSHIP_PRICE_IDS = new Set([
+  "price_1THqDtK49HEAljERGQuMt1x4", // mensuel
+  "price_1THqDtK49HEAljERNFrsHZ9G", // annuel
+]);
+
 const COUPON_MAP: Record<string, { code: string; discount: string }> = {
   price_1THqDtK49HEAljERGQuMt1x4: { code: "HCMEMBER10", discount: "10%" },
   price_1THqDtK49HEAljERNFrsHZ9G: { code: "HCMEMBER15", discount: "15%" },
@@ -151,7 +156,7 @@ export async function POST(request: NextRequest) {
 
     const billingUrl = "https://billing.stripe.com/p/login/00wfZi8Qs6mn1Wb9Lf0Ba00";
 
-    if (email) {
+    if (email && MEMBERSHIP_PRICE_IDS.has(priceId)) {
       try {
         await sendConfirmationEmail(email, name, coupon, billingUrl);
       } catch (err) {

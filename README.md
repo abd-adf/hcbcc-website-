@@ -34,3 +34,16 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Stripe Webhook — Emails de confirmation
+
+Le webhook Stripe (`src/app/api/webhooks/stripe/route.ts`) écoute l'événement `checkout.session.completed`.
+
+L'email de confirmation membership (via Brevo) ne part **que si le `priceId` est identifié comme membership** dans `MEMBERSHIP_PRICE_IDS` :
+
+| Price ID | Type | Coupon |
+|---|---|---|
+| `price_1THqDtK49HEAljERGQuMt1x4` | Membership mensuel | HCMEMBER10 (10%) |
+| `price_1THqDtK49HEAljERNFrsHZ9G` | Membership annuel | HCMEMBER15 (15%) |
+
+Tout autre `priceId` (nouveaux produits, événements, etc.) ne déclenche pas cet email. Pour ajouter un email spécifique à un autre produit, ajouter un `else if` dans le handler `checkout.session.completed`.

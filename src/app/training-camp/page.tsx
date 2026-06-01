@@ -111,16 +111,13 @@ export default function TrainingCampPage() {
           <h1 className="font-heading text-[clamp(3rem,10vw,9rem)] leading-[0.88] text-white/85 mb-6">
             <span className="block">HC TRAINING</span>
             <span className="block">CAMP 2027,</span>
-            <span className="block text-white/55">ALGARVE</span>
+            <span className="block text-white/80">ALGARVE</span>
           </h1>
-          <p className="text-white/65 text-lg sm:text-xl font-heading italic mb-8 tracking-wide">
+          <p className="text-white/85 text-3xl sm:text-4xl font-heading italic mb-8">
             Let&apos;s explore another land of cycling
           </p>
 
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
-            <p className="text-white/75 text-base sm:text-lg max-w-sm leading-relaxed">
-              Seven days of serious training on Portuguese roads. Built for experienced riders targeting a sportive or a big challenge in 2027.
-            </p>
             <div className="flex flex-col sm:flex-row gap-3 shrink-0">
               <a
                 href="#register"

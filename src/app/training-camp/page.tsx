@@ -501,7 +501,11 @@ export default function TrainingCampPage() {
               <h2 className="font-heading text-7xl sm:text-9xl text-white leading-[0.88] mb-4">
                 JOIN<br />THE CAMP
               </h2>
-              <p className="font-heading text-4xl sm:text-5xl text-white/40 italic">€800 per person</p>
+              <p className="font-heading text-4xl sm:text-5xl text-white/40 italic mb-6">€800 per person</p>
+              <div className="inline-flex items-center gap-3 px-5 py-3 border border-red-400/50 bg-red-500/10">
+                <span className="w-1.5 h-1.5 rounded-full bg-red-400 animate-pulse shrink-0" />
+                <p className="text-red-300 text-sm font-semibold uppercase tracking-[0.3em]">Registration closes July 15</p>
+              </div>
             </div>
 
             {/* Payment schedule */}

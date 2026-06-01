@@ -2,6 +2,7 @@
 
 import Script from "next/script";
 import Image from "next/image";
+import Link from "next/link";
 
 const events = [
   {
@@ -12,6 +13,7 @@ const events = [
     priceId: "price_1TE8MOGXu3buwWTAmQccMeDJ",
     image: "/images/horscategorie-brussels-training-camp-2027.webp",
     tag: "7 days",
+    href: "/training-camp",
   },
   {
     id: "santa-cross-2026",
@@ -21,6 +23,7 @@ const events = [
     priceId: "price_1TE82HGXu3buwWTA5lIW18Ux",
     image: "/images/horscategorie-brussels-santa-cross-event.webp",
     tag: "1 day",
+    href: null,
   },
 ];
 
@@ -36,8 +39,8 @@ const eventsJsonLd = {
       eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
       location: {
         "@type": "Place",
-        name: "Training Camp Location",
-        address: { "@type": "PostalAddress", addressCountry: "BE" },
+        name: "Prime Energize Hotel Monte Gordo",
+        address: { "@type": "PostalAddress", addressLocality: "Monte Gordo", addressRegion: "Algarve", addressCountry: "PT" },
       },
       organizer: {
         "@type": "SportsClub",
@@ -126,7 +129,13 @@ export default function EventsSection() {
                 </h3>
                 <div className="flex items-center justify-between">
                   <p className="font-heading text-3xl text-[#2f3a47] italic">€{event.price}</p>
-                  <span className="text-xs uppercase tracking-[0.3em] font-semibold text-[#a0aab4]">Registration opening soon</span>
+                  {event.href ? (
+                    <Link href={event.href} className="text-xs uppercase tracking-[0.3em] font-semibold text-[#111111] hover:underline underline-offset-4">
+                      View Details →
+                    </Link>
+                  ) : (
+                    <span className="text-xs uppercase tracking-[0.3em] font-semibold text-[#a0aab4]">Registration opening soon</span>
+                  )}
                 </div>
               </div>
 

@@ -26,6 +26,7 @@ function ScrollProgressBar() {
 
 const links = [
   { href: "/", label: "Home" },
+  { href: "/training-camp", label: "Training Camp" },
   { href: "/#collection", label: "Kits & Jerseys" },
   { href: "/licence", label: "Your Licence" },
   { href: "/ride-etiquette", label: "Ride Etiquette" },

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Check, ArrowRight } from "lucide-react";
+import { Check, ArrowRight, FileText } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "FCWB Licence",
@@ -102,14 +102,24 @@ export default function LicencePage() {
               Roadside contact:{" "}
               <span className="text-[#2f3a47] font-medium">Touring Business Solutions (TBS) — 02/286.34.61</span>
             </p>
-            <a
-              href="https://www.fcwb.be/page3.asp?ClubID=563&LG=FR&PageGroupeID=12"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="shrink-0 inline-flex items-center gap-2 px-6 py-3 bg-[#2f3a47] text-white text-sm font-semibold uppercase tracking-[0.3em] hover:bg-[#1e2830] transition-colors"
-            >
-              Get your FCWB licence <ArrowRight size={14} />
-            </a>
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 shrink-0">
+              <a
+                href="/process_iclub.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 border border-[#2f3a47] text-[#2f3a47] text-sm font-semibold uppercase tracking-[0.3em] hover:bg-[#2f3a47] hover:text-white transition-colors"
+              >
+                <FileText size={14} /> How to register
+              </a>
+              <a
+                href="https://www12.iclub.be/myiclub.asp?ClubID=563&LG=FR"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-[#2f3a47] text-white text-sm font-semibold uppercase tracking-[0.3em] hover:bg-[#1e2830] transition-colors"
+              >
+                Get your FCWB licence <ArrowRight size={14} />
+              </a>
+            </div>
           </div>
         </div>
 

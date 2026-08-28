@@ -504,7 +504,8 @@ export default function TrainingCampPage() {
               <p className="font-heading text-4xl sm:text-5xl text-white/40 italic mb-6">€800 per person</p>
               <div className="inline-flex items-center gap-3 px-5 py-3 border border-red-400/50 bg-red-500/10">
                 <span className="w-1.5 h-1.5 rounded-full bg-red-400 animate-pulse shrink-0" />
-                <p className="text-red-300 text-sm font-semibold uppercase tracking-[0.3em]">Registration closes July 15</p>
+                <p className="text-red-300 text-sm font-semibold uppercase tracking-[0.3em]">Registration closes October 15</p>
+                <p className="text-red-300/60 text-xs uppercase tracking-[0.2em] mt-1">Limited spots — may close early</p>
               </div>
             </div>
 
@@ -523,7 +524,7 @@ export default function TrainingCampPage() {
                 </div>
                 <div className="flex-1 bg-white/5 px-4 py-4 text-center border border-white/15 border-r-0">
                   <p className="text-white font-heading text-3xl">€300</p>
-                  <p className="text-white/40 text-[10px] uppercase tracking-[0.3em] mt-1">September</p>
+                  <p className="text-white/40 text-[10px] uppercase tracking-[0.3em] mt-1">December</p>
                 </div>
                 <div className="flex-1 bg-white/5 px-4 py-4 text-center border border-white/15">
                   <p className="text-white font-heading text-3xl">€300</p>
@@ -555,7 +556,7 @@ export default function TrainingCampPage() {
             </a>
 
             <p className="text-white/25 text-xs leading-relaxed max-w-sm">
-              €200 deposit today secures your spot. Balance split in two: €300 in September, €300 in January. Secure payment via Stripe.
+              €200 deposit today secures your spot. Balance split in two: €300 in December, €300 in January. Secure payment via Stripe.
             </p>
 
           </div>

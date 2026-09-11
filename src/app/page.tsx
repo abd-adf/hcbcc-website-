@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight, MapPin, ChevronRight } from "lucide-react";
 import FeaturedProducts from "@/components/FeaturedProducts";
 import EventsSection from "@/components/EventsSection";
+import MttPopup from "@/components/MttPopup";
 import LazyMap from "@/components/LazyMap";
 import { SHOP_URL } from "@/lib/site";
 
@@ -124,6 +125,8 @@ const allRides = [
 export default function HomePage() {
   return (
     <>
+      <MttPopup />
+
       {/* ── HERO ─────────────────────────────────────────────── */}
       <section
         className="relative min-h-[calc(100vh-4rem)] flex items-end overflow-hidden"

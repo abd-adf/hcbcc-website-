@@ -54,7 +54,7 @@ export default function MttPopup() {
             HC MIXED TIME TRIAL
           </h3>
           <a
-            href="https://shop.horscategoriebrussels.cc/product/registration-mtt-04-10"
+            href="https://shop.horscategoriebrussels.cc/product/team-registration-mtt-04-10"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center w-full px-7 py-3.5 bg-white text-[#111111] font-semibold uppercase tracking-[0.2em] text-sm hover:bg-white/90 transition-colors"

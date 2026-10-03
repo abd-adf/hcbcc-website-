@@ -504,7 +504,7 @@ export default function TrainingCampPage() {
               <p className="font-heading text-4xl sm:text-5xl text-white/40 italic mb-6">€800 per person</p>
               <div className="inline-flex items-center gap-3 px-5 py-3 border border-red-400/50 bg-red-500/10">
                 <span className="w-1.5 h-1.5 rounded-full bg-red-400 animate-pulse shrink-0" />
-                <p className="text-red-300 text-sm font-semibold uppercase tracking-[0.3em]">Registration closes October 15</p>
+                <p className="text-red-300 text-sm font-semibold uppercase tracking-[0.3em]">Registration closes October 11</p>
                 <p className="text-red-300/60 text-xs uppercase tracking-[0.2em] mt-1">Limited spots — may close early</p>
               </div>
             </div>

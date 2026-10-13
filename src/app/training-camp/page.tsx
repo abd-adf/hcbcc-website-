@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ArrowRight, MapPin, Plane, Calendar, Euro } from "lucide-react";
+import { MapPin, Plane, Calendar, Euro } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "HC Training Camp 2027, Algarve | Hors Catégorie Brussels",
@@ -37,7 +37,7 @@ const campJsonLd = {
     "@type": "Offer",
     price: "800",
     priceCurrency: "EUR",
-    availability: "https://schema.org/InStock",
+    availability: "https://schema.org/SoldOut",
     url: "https://horscategoriebrussels.cc/training-camp",
   },
 };
@@ -103,9 +103,14 @@ export default function TrainingCampPage() {
         />
 
         <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pb-28 sm:pb-36">
-          <div className="inline-flex items-center gap-2.5 mb-8 px-4 py-2 bg-white">
-            <span className="w-1.5 h-1.5 rounded-full bg-black animate-pulse" />
-            <span className="text-black text-sm uppercase tracking-[0.45em] font-bold">Training Camp · 2027</span>
+          <div className="flex flex-wrap items-center gap-3 mb-8">
+            <div className="inline-flex items-center gap-2.5 px-4 py-2 bg-white">
+              <span className="w-1.5 h-1.5 rounded-full bg-black" />
+              <span className="text-black text-sm uppercase tracking-[0.45em] font-bold">Training Camp · 2027</span>
+            </div>
+            <div className="inline-flex items-center px-4 py-2 bg-red-600">
+              <span className="text-white text-sm uppercase tracking-[0.45em] font-bold">Sold Out</span>
+            </div>
           </div>
 
           <h1 className="font-heading text-[clamp(3rem,10vw,9rem)] leading-[0.88] text-white/85 mb-6">
@@ -119,12 +124,12 @@ export default function TrainingCampPage() {
 
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
             <div className="flex flex-col sm:flex-row gap-3 shrink-0">
-              <a
-                href="#register"
-                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white text-[#111111] font-semibold uppercase tracking-[0.2em] text-sm hover:bg-white/90 transition-colors"
+              <span
+                aria-disabled="true"
+                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white/20 text-white/70 font-semibold uppercase tracking-[0.2em] text-sm cursor-not-allowed"
               >
-                Register Now <ArrowRight size={13} />
-              </a>
+                Sold Out
+              </span>
               <a
                 href="#programme"
                 className="inline-flex items-center justify-center px-7 py-3.5 border border-white/30 text-white/80 font-semibold uppercase tracking-[0.2em] text-sm hover:border-white/70 hover:text-white transition-colors"
@@ -503,9 +508,8 @@ export default function TrainingCampPage() {
               </h2>
               <p className="font-heading text-4xl sm:text-5xl text-white/40 italic mb-6">€800 per person</p>
               <div className="inline-flex items-center gap-3 px-5 py-3 border border-red-400/50 bg-red-500/10">
-                <span className="w-1.5 h-1.5 rounded-full bg-red-400 animate-pulse shrink-0" />
-                <p className="text-red-300 text-sm font-semibold uppercase tracking-[0.3em]">Registration closes October 11</p>
-                <p className="text-red-300/60 text-xs uppercase tracking-[0.2em] mt-1">Limited spots — may close early</p>
+                <span className="w-1.5 h-1.5 rounded-full bg-red-400 shrink-0" />
+                <p className="text-red-300 text-sm font-semibold uppercase tracking-[0.3em]">Sold out — registration closed</p>
               </div>
             </div>
 
@@ -546,17 +550,15 @@ export default function TrainingCampPage() {
             </div>
 
             {/* CTA button */}
-            <a
-              href="https://buy.stripe.com/00wfZi8Qs6mn1Wb9Lf0Ba00"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-3 px-10 py-5 bg-white text-[#111111] font-semibold uppercase tracking-[0.25em] text-sm hover:bg-white/90 transition-colors"
+            <span
+              aria-disabled="true"
+              className="inline-flex items-center justify-center gap-3 px-10 py-5 bg-white/10 text-white/50 border border-white/15 font-semibold uppercase tracking-[0.25em] text-sm cursor-not-allowed"
             >
-              Register — €200 deposit <ArrowRight size={15} />
-            </a>
+              Sold Out
+            </span>
 
             <p className="text-white/25 text-xs leading-relaxed max-w-sm">
-              €200 deposit today secures your spot. Balance split in two: €300 in December, €300 in January. Secure payment via Stripe.
+              All spots for the 2027 camp have been filled. Thank you to everyone who signed up!
             </p>
 
           </div>
